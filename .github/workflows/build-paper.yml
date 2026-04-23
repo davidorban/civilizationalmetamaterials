@@ -41,6 +41,9 @@ jobs:
         run: |
           cp paper/civilizational-metamaterials-agi26-r3.pdf docs/civilizational-metamaterials-agi26-r3.pdf
           cp paper/civilizational-metamaterials-agi26-r3.pdf docs/paper.pdf
+          pip install pypdf Pillow
+          python code/figures/make_preprint.py
+          cp paper/preprint/civilizational-metamaterials-preprint.pdf docs/civilizational-metamaterials-preprint.pdf
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/paper.pdf
