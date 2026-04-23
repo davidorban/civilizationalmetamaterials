@@ -40,9 +40,12 @@ date-released: "2026-04-15"
 #   and fill doi + preferred-citation below.
 status: "Under review at AGI-26"
 
-# On acceptance, uncomment and populate:
-# doi: "10.5281/zenodo.XXXXXXXX"     # Zenodo archival DOI
-# identifiers:
+doi: "10.5281/zenodo.19710482"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19710482"
+    description: Zenodo archival DOI (v1.0.0)
+# On arXiv submission, add:
 #   - type: other
 #     value: "arXiv:XXXX.XXXXX"
 #     description: arXiv preprint

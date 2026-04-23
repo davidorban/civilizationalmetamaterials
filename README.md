@@ -74,11 +74,12 @@ BibTeX (under-review placeholder):
   year         = {2026},
   howpublished = {Manuscript under review at AGI-26},
   note         = {Revision 3},
-  url          = {https://github.com/davidorban/civilizationalmetamaterials}
+  doi          = {10.5281/zenodo.19710482},
+  url          = {https://doi.org/10.5281/zenodo.19710482}
 }
 ```
 
-A machine-readable citation is in [`CITATION.cff`](CITATION.cff). On acceptance, the `status` field flips to `Accepted, AGI-26. To appear in Springer LNCS/LNAI`, a Zenodo DOI is minted, and an arXiv identifier is added.
+A machine-readable citation is in [`CITATION.cff`](CITATION.cff). Zenodo archival DOI: [10.5281/zenodo.19710482](https://doi.org/10.5281/zenodo.19710482). On acceptance, the `status` field flips to `Accepted, AGI-26. To appear in Springer LNCS/LNAI` and an arXiv identifier is added.
 
 ## Collaboration
 
