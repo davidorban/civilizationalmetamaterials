@@ -1,0 +1,63 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+# Final PDFs *are* tracked (paper/preprint/*.pdf and figures/*.pdf)
+# Intermediate PDFs elsewhere are not.
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+.tox/
+dist/
+build/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Node (for the website's optional toolchain)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# arXiv packaging
+paper/arxiv/*.tar.gz
+paper/arxiv/staging/
+
+# Local scratch
+scratch/
+TODO.local.md

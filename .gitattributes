@@ -1,0 +1,37 @@
+# Auto-detect text and normalize line endings on checkin.
+* text=auto eol=lf
+
+# Explicitly declared text.
+*.tex       text
+*.bib       text
+*.cls       text
+*.bst       text
+*.md        text
+*.py        text diff=python
+*.html      text diff=html
+*.css       text diff=css
+*.js        text
+*.yml       text
+*.yaml      text
+*.toml      text
+*.cff       text
+*.sh        text eol=lf
+Makefile    text eol=lf
+
+# Binary assets — never diff, never normalize.
+*.pdf       binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.eps       binary
+*.tar.gz    binary
+*.zip       binary
+
+# Language detection hints for GitHub's Linguist.
+*.tex       linguist-language=TeX
+paper/**    linguist-documentation
+drafts/**   linguist-documentation
+peer-review/** linguist-documentation
+figures/**  linguist-vendored

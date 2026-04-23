@@ -1,0 +1,63 @@
+cff-version: 1.2.0
+title: "Civilizational Metamaterials: Engineering Coordination Under Capability Gradients and Structural Turbulence"
+message: "If you use this work, please cite it using these metadata."
+type: software
+authors:
+  - family-names: Orban
+    given-names: David
+    orcid: "https://orcid.org/0009-0004-4954-1147"
+    email: david@davidorban.com
+    affiliation: Independent Researcher
+repository-code: "https://github.com/davidorban/civilizationalmetamaterials"
+url: "https://metamaterials.davidorban.com"
+abstract: >-
+  We argue that governance must transition from a normative discipline to an
+  engineering discipline, and develop a formal framework, inspired by the
+  physics of metamaterials, to make this transition quantitative and testable.
+  Artificial General Intelligence affects civilization primarily by increasing
+  decision velocity while human verification capacity remains bounded. When
+  the cost of validating AI-generated outputs exceeds the expected utility of
+  acting on them, rational agents default to inaction: a stable but
+  catastrophic Nash equilibrium we term the Freezing Equilibrium. We develop
+  a phenomenological constitutive law for institutional coordination and
+  predict a sharp phase transition between self-healing and self-destabilizing
+  regimes. We introduce a three-class provenance taxonomy including context
+  binding, and derive four falsifiable hypotheses with a proposed 12-week
+  stepped-wedge cluster-randomized trial.
+keywords:
+  - AGI governance
+  - coordination theory
+  - institutional design
+  - decision provenance
+  - AI safety
+  - multi-agent systems
+license: MIT
+license-url: "https://github.com/davidorban/civilizationalmetamaterials/blob/main/LICENSE-CODE"
+version: "0.1.0-r3"
+date-released: "2026-04-15"
+# Status — update on acceptance:
+#   "Accepted, AGI-26. To appear in Springer LNCS/LNAI."
+#   and fill doi + preferred-citation below.
+status: "Under review at AGI-26"
+
+# On acceptance, uncomment and populate:
+# doi: "10.5281/zenodo.XXXXXXXX"     # Zenodo archival DOI
+# identifiers:
+#   - type: other
+#     value: "arXiv:XXXX.XXXXX"
+#     description: arXiv preprint
+#
+# preferred-citation:
+#   type: conference-paper
+#   title: "Civilizational Metamaterials: Engineering Coordination Under Capability Gradients and Structural Turbulence"
+#   authors:
+#     - family-names: Orban
+#       given-names: David
+#       orcid: "https://orcid.org/0009-0004-4954-1147"
+#   collection-title: "Artificial General Intelligence — AGI 2026"
+#   collection-type: proceedings
+#   publisher:
+#     name: Springer
+#   series: "Lecture Notes in Artificial Intelligence"
+#   year: 2026
+#   doi: "10.1007/XXX-X-XXX-XXXXX-X_XX"
