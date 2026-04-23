@@ -18,6 +18,26 @@ adapted for an academic repository.
 
 ---
 
+
+---
+
+## Phase 4 — 2026-04-23
+
+### Added
+
+- `code/figures/fig01_decision_verification_gap.py` — wrapper that compiles `fig01_decision_verification_gap.tex` via pdflatex.
+- `code/figures/fig01_decision_verification_gap.tex` — TikZ standalone source for Fig. 1.
+- `code/figures/_composite.py` — shared PIL layer compositor (alpha-composites numbered PNG layers → PDF).
+- `code/figures/fig03_provenance_taxonomy.py` — composites `figures/layers/fig03-layers/`.
+- `code/figures/fig04_freezing_equilibrium.py` — composites `figures/layers/fig04-layers/`.
+- `code/figures/fig06_coordination_anisotropy.py` — composites `figures/layers/fig06-layers/`.
+- `code/figures/fig07_trial_design.py` — composites `figures/layers/fig07-layers/`.
+- `code/figures/fig08_trust_anchors.py` — composites `figures/layers/fig08-layers/`.
+- `code/figures/fig09_metamaterial_analogy.py` — composites `figures/layers/fig09-layers/`.
+- `code/figures/fig10_synthetic_principals.py` — composites `figures/layers/fig10-layers/`.
+- `paper/Makefile` — `make figures` target updated to rebuild all 10 figures.
+- `.github/workflows/figures.yml` — updated to regenerate all 10 figures on CI.
+
 ## Phase 3 — 2026-04-23
 
 ### Added

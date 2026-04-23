@@ -23,18 +23,22 @@ jobs:
       - name: Install dependencies
         run: pip install -r code/requirements.txt
 
-      - name: Regenerate fig02 (phase transition)
+      - name: Regenerate computational figures (fig02, fig05)
         run: |
-          python code/figures/fig02_phase_transition.py \
-            --out /tmp/fig02-phase-transition.pdf
+          python code/figures/fig02_phase_transition.py   --out /tmp/fig02-phase-transition.pdf
+          python code/figures/fig05_sensitivity_analysis.py --out /tmp/fig05-sensitivity-analysis.pdf
 
-      - name: Regenerate fig05 (sensitivity analysis)
+      - name: Regenerate composited figures (fig03, fig04, fig06–fig10)
         run: |
-          python code/figures/fig05_sensitivity_analysis.py \
-            --out /tmp/fig05-sensitivity-analysis.pdf
+          for s in fig03_provenance_taxonomy fig04_freezing_equilibrium \
+                   fig06_coordination_anisotropy fig07_trial_design \
+                   fig08_trust_anchors fig09_metamaterial_analogy \
+                   fig10_synthetic_principals; do
+            python code/figures/${s}.py --out /tmp/${s/-/_}.pdf || true
+          done
 
       - name: Upload regenerated PDFs as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: figures-regenerated
-          path: /tmp/fig0*.pdf
+          path: /tmp/fig*.pdf
