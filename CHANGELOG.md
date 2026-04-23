@@ -15,6 +15,27 @@ adapted for an academic repository.
 
 ---
 
+
+---
+
+## Phase 3 — 2026-04-23
+
+### Added
+
+- `code/cm/constitutive.py` — `r_eff()`, `tau_star()`, `phase_boundary()`, fully vectorized.
+- `code/cm/branching.py` — Monte Carlo branching-process simulator with population cap.
+- `code/cm/sensitivity.py` — OAT sweeps and Sobol first-order + total indices (SALib).
+- `code/cm/anisotropy.py` — Directional coordination tensor and anisotropy index.
+- `code/cm/plotting.py` — Shared LNCS style, color constants, figure factory.
+- `code/cm/__init__.py` — Package entry point.
+- `code/tests/test_constitutive.py`, `test_branching.py`, `test_sensitivity.py`,
+  `test_anisotropy.py`, `test_plotting.py` — 52 tests, 97% coverage on `cm/`.
+- `code/figures/fig02_phase_transition.py` — Reproduces Fig. 2 computationally.
+- `code/figures/fig05_sensitivity_analysis.py` — Reproduces Fig. 5 computationally.
+- `code/pyproject.toml`, `code/requirements.txt`, `code/README.md`.
+- `.github/workflows/tests.yml` — pytest + coverage ≥ 90% on push to `code/**`.
+- `.github/workflows/figures.yml` — Regenerates fig02 and fig05, uploads artifacts.
+
 ## Phase 2 — 2026-04-23
 
 ### Added

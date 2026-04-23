@@ -1,0 +1,10 @@
+# Pinned runtime dependencies for figure reproduction
+numpy==1.26.4
+scipy==1.13.1
+matplotlib==3.9.2
+Pillow==10.4.0
+SALib==1.5.1
+
+# Dev / test
+pytest==8.3.3
+pytest-cov==5.0.0
