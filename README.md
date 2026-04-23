@@ -82,7 +82,7 @@ A machine-readable citation is in [`CITATION.cff`](CITATION.cff). On acceptance,
 
 ## Collaboration
 
-The 12-week stepped-wedge cluster-randomized trial described in §Empirical is a *proposed* experimental design, not a registered trial. Institutions interested in piloting the protocol should read [`COLLABORATION.md`](COLLABORATION.md) (coming in Phase 5) and open an issue with the `replication` template.
+The 12-week stepped-wedge cluster-randomized trial described in §Empirical is a *proposed* experimental design, not a registered trial. Institutions interested in piloting the protocol should read [`COLLABORATION.md`](COLLABORATION.md) and open an issue with the `collaboration` label.
 
 ## Licenses
 

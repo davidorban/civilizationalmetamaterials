@@ -10,7 +10,27 @@ adapted for an academic repository.
 
 ## [Unreleased]
 
-- Repository skeleton, licenses, citation metadata, website scaffolding.
+---
+
+## Phase 1 — 2026-04-23
+
+### Added
+
+- `paper/civilizational-metamaterials-agi26-r3.tex` — r3 camera-ready TeX source.
+- `paper/references-r3.bib`, `paper/llncs.cls`, `paper/splncs04.bst` — vendored bibliography and Springer class files for a hermetic build.
+- `paper/build.sh` and `paper/Makefile` — one-shot build (`make paper`) and clean (`make clean`).
+- `paper/preprint/civilizational-metamaterials-agi26-r3.pdf` — committed build artifact.
+- `figures/` — all ten canonical figure PDFs (fig01–fig10).
+- `figures/fig01-tikz.pdf` — the TikZ figure referenced by the paper TeX source.
+- `figures/layers/fig0{1–10}-layers/` — layered PNG assets for all figures.
+- `figures/LAYER_INDEX.md` — layer inventory and color constants.
+- `drafts/r1/` and `drafts/r2/` — prior TeX and BibTeX revisions kept for provenance.
+- `peer-review/` — full review thread and author rebuttals (all five files).
+- `.github/workflows/build-paper.yml` — CI: compile on push to `paper/**` or `figures/**`; attach PDF to tagged releases; refresh `docs/paper.pdf`.
+- `.github/ISSUE_TEMPLATE/errata.md` and `replication.md` — structured issue templates.
+- `.github/PULL_REQUEST_TEMPLATE.md` and `.github/CODEOWNERS`.
+- `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md` (Contributor Covenant v2.1), `COLLABORATION.md`.
+- `docs/CNAME` — custom domain `metamaterials.davidorban.com`.
 
 ---
 
