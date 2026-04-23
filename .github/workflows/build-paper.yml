@@ -39,6 +39,7 @@ jobs:
       - name: Attach PDF to release and refresh docs/paper.pdf
         if: startsWith(github.ref, 'refs/tags/')
         run: |
+          cp paper/civilizational-metamaterials-agi26-r3.pdf docs/civilizational-metamaterials-agi26-r3.pdf
           cp paper/civilizational-metamaterials-agi26-r3.pdf docs/paper.pdf
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
