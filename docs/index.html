@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civilizational Metamaterials — David Orban</title>
+
+  <!-- Open Graph / Twitter card -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="Civilizational Metamaterials">
+  <meta property="og:description" content="Engineering Coordination Under Capability Gradients and Structural Turbulence. A formal framework for institutional coordination in the age of AGI.">
+  <meta property="og:url"         content="https://metamaterials.davidorban.com">
+  <meta property="og:image"       content="https://metamaterials.davidorban.com/assets/img/og-card.png">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content="Civilizational Metamaterials — David Orban">
+  <meta name="twitter:description" content="A constitutive law for institutional coordination: R_eff = β(1−ρ)(1−τ)(1+γρτ). Phase transition between self-healing and self-destabilizing regimes.">
+  <meta name="twitter:image"      content="https://metamaterials.davidorban.com/assets/img/og-card.png">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$','$'], ['\\(','\\)']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" crossorigin="anonymous" defer></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ── 1. Masthead ─────────────────────────────────────────────────────── -->
+<div class="container">
+  <section class="masthead">
+    <h1>Civilizational Metamaterials</h1>
+    <p style="font-size:1.15rem; margin-top:8px; color:var(--text-muted);">
+      Engineering Coordination Under Capability Gradients and Structural Turbulence
+    </p>
+    <p class="meta">
+      <a href="https://orcid.org/0009-0004-4954-1147">David Orban</a>
+      &nbsp;·&nbsp; ORCID <a href="https://orcid.org/0009-0004-4954-1147">0009-0004-4954-1147</a>
+      &nbsp;·&nbsp; Independent Researcher
+      <a class="badge" href="https://agi-conf.org/2026/" target="_blank" rel="noopener">AGI-26</a>
+    </p>
+    <div class="button-row">
+      <a class="btn btn-primary" href="paper.pdf">Paper (PDF)</a>
+      <a class="btn btn-secondary" href="https://arxiv.org" id="arxiv-link"
+         title="arXiv link — will be updated on preprint submission">arXiv (pending)</a>
+      <button class="btn btn-secondary" onclick="copyBibtex()" id="bibtex-btn">Copy BibTeX</button>
+      <a class="btn btn-secondary" href="https://github.com/davidorban/civilizationalmetamaterials"
+         target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <!-- ── 2. Abstract ──────────────────────────────────────────────────── -->
+  <section>
+    <h2>Abstract</h2>
+    <p>
+      We argue that governance must transition from a normative discipline to an engineering
+      discipline, and develop a formal framework — inspired by the physics of metamaterials —
+      to make this transition quantitative and testable. Artificial General Intelligence affects
+      civilization primarily by increasing decision velocity while human verification capacity
+      remains bounded. When the cost of validating AI-generated outputs exceeds the expected
+      utility of acting on them, rational agents default to inaction: a stable but catastrophic
+      Nash equilibrium we term the <strong>Freezing Equilibrium</strong>.
+    </p>
+    <p>
+      Drawing on metamaterials, where emergent macro-properties arise from designed microstructure,
+      we develop a phenomenological constitutive law for institutional coordination, predict a sharp
+      phase transition between self-healing and self-destabilizing regimes, introduce a three-class
+      provenance taxonomy including <em>context binding</em>, and derive four falsifiable hypotheses
+      with a proposed 12-week stepped-wedge cluster-randomized trial in government grant review panels.
+    </p>
+  </section>
+
+  <!-- ── 3. Central claim + constitutive law ──────────────────────────── -->
+  <section>
+    <h2>The constitutive law</h2>
+    <p>
+      The core result is a phenomenological equation for the effective reproduction number of
+      unverified decisions flowing through an institution:
+    </p>
+
+    <div class="formula-block">
+      \[ R_{\text{eff}} = \beta \cdot (1-\rho) \cdot (1-\tau) \cdot (1 + \gamma\rho\tau) \]
+    </div>
+
+    <p>where:</p>
+    <ul style="padding-left:1.4em; margin-bottom:14px;">
+      <li><strong>β</strong> — decision branching factor (AI-driven delegation tree width)</li>
+      <li><strong>ρ</strong> ∈ [0, 1] — provenance fidelity (fraction of decisions with verifiable origin)</li>
+      <li><strong>τ</strong> ∈ [0, 1] — verification rate (fraction of decisions actually checked)</li>
+      <li><strong>γ</strong> ≥ 0 — provenance–verification synergy (how much they reinforce each other)</li>
+    </ul>
+    <p>
+      When $R_{\text{eff}} &lt; 1$, unverified decisions decay — the institution is in the
+      <strong>self-healing regime</strong>. When $R_{\text{eff}} &gt; 1$, they cascade — the
+      <strong>self-destabilizing regime</strong>. The phase boundary $R_{\text{eff}} = 1$ is the
+      critical threshold, and the sub-critical condition can be engineered by institutional design
+      of ρ and τ.
+    </p>
+  </section>
+
+  <!-- ── 4. Hero figure + interactive widget ──────────────────────────── -->
+  <section>
+    <h2>Phase diagram</h2>
+    <p>
+      Figure 2 shows $R_{\text{eff}}$ as a function of ρ and τ for $\beta = 10$, $\gamma = 1$.
+      The bold contour marks the phase boundary. The blue region is self-healing; the red region
+      is turbulent.
+    </p>
+
+    <div class="hero-fig">
+      <img src="assets/img/fig02-phase-transition.png"
+           alt="Phase transition diagram: R_eff as a function of provenance fidelity ρ and verification rate τ"
+           onerror="this.style.display='none'; document.getElementById('fig-fallback').style.display='block'">
+      <p id="fig-fallback" style="display:none; color:var(--text-muted); font-size:0.9rem; margin-top:8px;">
+        [Phase diagram image — see <a href="https://github.com/davidorban/civilizationalmetamaterials/blob/main/figures/fig02-phase-transition.pdf">figures/fig02-phase-transition.pdf</a>]
+      </p>
+    </div>
+
+    <div id="reff-explorer">
+      <h3>Interactive R_eff explorer</h3>
+      <p style="font-size:0.9rem; margin-bottom:16px; color:var(--text-muted);">
+        Drag the sliders to see whether your institutional parameters place the system
+        in the damped or turbulent regime.
+      </p>
+      <div class="slider-row">
+        <label for="slider-beta">β (branching)</label>
+        <input type="range" id="slider-beta" min="1" max="50" step="0.5" value="10">
+        <span class="val" id="val-beta">10.0</span>
+      </div>
+      <div class="slider-row">
+        <label for="slider-rho">ρ (provenance)</label>
+        <input type="range" id="slider-rho" min="0" max="1" step="0.01" value="0.5">
+        <span class="val" id="val-rho">0.50</span>
+      </div>
+      <div class="slider-row">
+        <label for="slider-tau">τ (verification)</label>
+        <input type="range" id="slider-tau" min="0" max="1" step="0.01" value="0.5">
+        <span class="val" id="val-tau">0.50</span>
+      </div>
+      <div class="slider-row">
+        <label for="slider-gamma">γ (synergy)</label>
+        <input type="range" id="slider-gamma" min="0" max="3" step="0.05" value="1">
+        <span class="val" id="val-gamma">1.00</span>
+      </div>
+      <div id="reff-result" class="damped">—</div>
+    </div>
+  </section>
+
+  <!-- ── 5. Four contributions ────────────────────────────────────────── -->
+  <section>
+    <h2>Four contributions</h2>
+    <div class="contrib-grid">
+      <div class="contrib-card">
+        <div class="label">Contribution 1</div>
+        <h3>Constitutive Law</h3>
+        <p>A phenomenological equation for institutional coordination parameterized by designable
+        features, with a sharp phase transition derivable from branching-process theory.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="label">Contribution 2</div>
+        <h3>Three-Class Provenance Taxonomy</h3>
+        <p>Cryptographic (Class A), institutional (Class B), and <em>context binding</em>
+        (Class C — the novel third class). Maps onto NIST AI RMF and ISO 42001.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="label">Contribution 3</div>
+        <h3>Synthetic Principals</h3>
+        <p>AI agents treated as distinct governance primitives — synthetic principals that
+        require calibrated delegation depth and explicit visibility, not human-principal
+        proxies.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="label">Contribution 4</div>
+        <h3>Falsifiable Trial Design</h3>
+        <p>Four falsifiable hypotheses with a concrete 12-week stepped-wedge
+        cluster-randomized trial in government grant review panels, with pre-specified
+        statistical analysis plan and OSF preregistration template.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. Four hypotheses ────────────────────────────────────────────── -->
+  <section>
+    <h2>Four falsifiable hypotheses</h2>
+    <table class="hyp-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Prediction</th>
+          <th>Falsifier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>H1</td>
+          <td>Panels crossing $R_{\text{eff}} = 1$ exhibit a sharp regime change — exponential-tail
+          cutoff rather than power-law tails in cascade size.</td>
+          <td>No regime change at threshold; power-law tails persist across the boundary.</td>
+        </tr>
+        <tr>
+          <td>H2</td>
+          <td>Combined ρ and τ interventions are superadditive; the joint effect exceeds the sum
+          of individual effects (synergy term γρτ &gt; 0).</td>
+          <td>Additive or sub-additive joint effect.</td>
+        </tr>
+        <tr>
+          <td>H3</td>
+          <td>Coordination improvements are directional — within-unit effects differ from
+          cross-boundary effects (anisotropic tensor).</td>
+          <td>Isotropic response; no directional difference.</td>
+        </tr>
+        <tr>
+          <td>H4</td>
+          <td>Withdrawal of interventions is asymmetrically costly — recovery requires a
+          larger push than the original transition (hysteresis).</td>
+          <td>Symmetric recovery on withdrawal.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── 7. Experiment ─────────────────────────────────────────────────── -->
+  <section>
+    <h2>Proposed experiment</h2>
+    <p>
+      The paper proposes a <strong>12-week stepped-wedge cluster-randomized trial</strong> in
+      government grant review panels. Cohorts of panels are sequentially crossed from control
+      to the intervention — a Class A/B/C provenance scaffolding system — with the primary
+      endpoint being whether a panel's decision process crosses $R_{\text{eff}} = 1$.
+    </p>
+    <p>
+      The full protocol, statistical analysis plan, power analysis, OSF preregistration
+      template, and synthetic data generator are in the
+      <a href="https://github.com/davidorban/civilizationalmetamaterials/tree/main/experiments"
+         target="_blank" rel="noopener"><code>experiments/</code></a> directory.
+      This is a <em>proposed, not yet registered</em> trial. Institutions interested in
+      running the protocol should see
+      <a href="https://github.com/davidorban/civilizationalmetamaterials/blob/main/COLLABORATION.md"
+         target="_blank" rel="noopener">COLLABORATION.md</a>.
+    </p>
+  </section>
+
+  <!-- ── 8. Cite this work ─────────────────────────────────────────────── -->
+  <section>
+    <h2>Cite this work</h2>
+    <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+    <pre id="bibtex-block">@misc{orban2026civilizationalmetamaterials,
+  author       = {David Orban},
+  title        = {Civilizational Metamaterials:
+                  Engineering Coordination Under Capability
+                  Gradients and Structural Turbulence},
+  year         = {2026},
+  howpublished = {Manuscript under review at AGI-26},
+  note         = {Revision 3},
+  url          = {https://github.com/davidorban/civilizationalmetamaterials}
+}</pre>
+    <p style="margin-top:12px; font-size:0.9rem; color:var(--text-muted);">
+      DOI: <span id="doi-placeholder">pending — will be minted via Zenodo on first tagged release</span>.
+      Machine-readable citation in
+      <a href="https://github.com/davidorban/civilizationalmetamaterials/blob/main/CITATION.cff"
+         target="_blank" rel="noopener">CITATION.cff</a>.
+    </p>
+  </section>
+
+  <!-- ── 9. Reproduce ──────────────────────────────────────────────────── -->
+  <section>
+    <h2>Reproduce</h2>
+    <p>Requires Python 3.11+, a TeXLive distribution, and <code>make</code>.</p>
+    <button class="copy-btn" onclick="copyRepro()">Copy</button>
+    <pre id="repro-block">git clone https://github.com/davidorban/civilizationalmetamaterials.git
+cd civilizationalmetamaterials
+make -C paper paper        # rebuild the PDF
+python -m pytest code/     # run the reference-implementation tests
+make -C paper figures      # regenerate all 10 figures from source</pre>
+    <p style="margin-top:12px; font-size:0.9rem; color:var(--text-muted);">
+      Encountered a discrepancy? Open a
+      <a href="https://github.com/davidorban/civilizationalmetamaterials/issues/new?template=replication.md"
+         target="_blank" rel="noopener">replication issue</a>.
+    </p>
+  </section>
+</div>
+
+<!-- ── 10. Footer ────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <span>
+        &copy; 2026 David Orban.
+        Code: <a href="https://github.com/davidorban/civilizationalmetamaterials/blob/main/LICENSE-CODE" target="_blank" rel="noopener">MIT</a>.
+        Paper &amp; figures: <a href="https://github.com/davidorban/civilizationalmetamaterials/blob/main/LICENSE-CONTENT" target="_blank" rel="noopener">CC-BY 4.0</a>.
+      </span>
+      <span>
+        <a href="mailto:david@davidorban.com">david@davidorban.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/davidorban/civilizationalmetamaterials" target="_blank" rel="noopener">GitHub</a>
+      </span>
+      <span id="last-updated" style="color:var(--text-muted); font-size:0.82rem;">
+        Last updated: 2026-04-23
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/reff-explorer.js"></script>
+<script>
+function copyText(id) {
+  var text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var btns = document.querySelectorAll('.copy-btn');
+    btns.forEach(function(b) { if (b.onclick && b.onclick.toString().includes(id.split('-')[0])) b.textContent = 'Copied!'; });
+    setTimeout(function() { btns.forEach(function(b) { if (b.textContent==='Copied!') b.textContent='Copy'; }); }, 1800);
+  });
+}
+function copyBibtex() { copyText('bibtex-block'); }
+function copyRepro()  { copyText('repro-block'); }
+</script>
+</body>
+</html>

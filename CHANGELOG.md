@@ -12,6 +12,25 @@ adapted for an academic repository.
 
 ---
 
+
+---
+
+## Phase 2 — 2026-04-23
+
+### Added
+
+- `docs/index.html` — one-page website with masthead, abstract, formula (MathJax),
+  hero figure, four-contribution cards, hypotheses table, experiment section,
+  BibTeX block with copy button, reproduce block, and footer.
+- `docs/assets/css/style.css` — responsive styles, dark-mode via prefers-color-scheme,
+  system font stack, no tracking, <100 kB total.
+- `docs/assets/js/reff-explorer.js` — interactive slider widget for R_eff phase diagram.
+- `docs/assets/img/fig02-phase-transition.png` — hero PNG exported from PDF at 150 dpi.
+- `docs/assets/img/og-card.png` — Open Graph / Twitter card image.
+- `docs/CNAME` — custom domain `metamaterials.davidorban.com`.
+- `.github/workflows/pages.yml` — deploys docs/ to GitHub Pages via actions/deploy-pages@v4;
+  runs lychee link-check and html-validate.
+
 ## Phase 1 — 2026-04-23
 
 ### Added
