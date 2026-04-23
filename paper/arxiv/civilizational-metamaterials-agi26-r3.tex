@@ -1,0 +1,365 @@
+% Civilizational Metamaterials — AGI-26 Submission Draft (Revision 3)
+% David Orban, 2026-04-15
+% Format: Springer LNCS/LNAI (llncs class)
+% Revision notes: R3 corrects computational errors in sensitivity analysis
+%   (synergy formulas, τ* values). All other content unchanged from R2.
+
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\renewcommand\UrlFont{\rmfamily}
+
+\begin{document}
+
+\title{Civilizational Metamaterials: Engineering Coordination Under Capability Gradients and Structural Turbulence}
+\titlerunning{Civilizational Metamaterials}
+
+\author{David Orban\orcidID{0009-0004-4954-1147}}
+
+\authorrunning{D. Orban}
+
+\institute{Independent Researcher\\
+\email{david@davidorban.com}}
+
+\maketitle
+
+\begin{abstract}
+We argue that governance must transition from a normative discipline to an engineering discipline, and we develop a formal framework, inspired by the physics of metamaterials, to make this transition quantitative and testable. Artificial General Intelligence affects civilization primarily by increasing decision velocity while human verification capacity remains bounded. When the cost of validating AI-generated outputs exceeds the expected utility of acting on them, rational agents default to inaction: a stable but catastrophic Nash equilibrium we term the \emph{Freezing Equilibrium}. Drawing on metamaterials, where emergent macro-properties arise from designed microstructure, we develop a phenomenological constitutive law for institutional coordination: $R_{\mathrm{eff}} = \beta \cdot (1-\rho) \cdot (1-\tau) \cdot (1+\gamma \rho \tau)$, where $\beta$ is the decision branching factor, $\rho$ is provenance fidelity, $\tau$ is the verification rate, and $\gamma$ captures provenance--verification synergy. The model predicts a sharp phase transition between self-healing ($R_{\mathrm{eff}} < 1$) and self-destabilizing ($R_{\mathrm{eff}} > 1$) regimes. We introduce a three-class provenance taxonomy: cryptographic, institutional, and \emph{context binding}, and derive four falsifiable hypotheses with a proposed 12-week stepped-wedge cluster-randomized trial in government grant review panels. The framework bridges AI alignment theory and institutional design.
+
+\keywords{AGI governance \and coordination theory \and institutional design \and decision provenance \and AI safety \and multi-agent systems}
+\end{abstract}
+
+
+%===================================================================
+\section{Introduction}
+\label{sec:intro}
+%===================================================================
+
+Previous waves of information technology accelerated transmission: the telegraph collapsed geographic latency; the internet democratized access. Artificial General Intelligence accelerates something qualitatively different: \emph{synthesis and decision}. The specific risk is not speed alone but the structural consequence of decision velocity outpacing verification velocity. Without engineered countermeasures, the cost of verifying reality exceeds the cost of generating fiction, and institutions enter a regime where rational inaction becomes the dominant strategy.
+
+\paragraph{The decision--verification gap.}
+Let $V_d$ denote the rate at which AI systems generate decisions and $C_v$ the rate at which human (or human-supervised) processes can verify them. Historically, both were bounded by cognitive throughput, and $V_d \approx C_v$. AGI decouples these rates: synthetic principals execute directives at kilohertz frequencies while human verification remains tethered to the biological orientation phase of the OODA loop~\cite{boyd1996essence}, requiring 0.2--2.0\,s per assessment~\cite{card1983psychology}. As the velocity gradient $\Delta V = V_d - C_v$ grows, unverified claims accumulate faster than they can be processed (Fig.~\ref{fig:gap}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig01-tikz.pdf}
+\caption{The Decision--Verification Gap. Decision velocity $V_d$ diverges from verification velocity $C_v$ as AGI accelerates delegation beyond human verification capacity. The shaded region represents unverified decisions accumulating faster than they can be processed. When $C_{\mathrm{ver}} > \mathbb{E}[U_{\mathrm{act}}]$, the system reaches the Freezing Equilibrium.}
+\label{fig:gap}
+\end{figure}
+
+\paragraph{The Freezing Equilibrium.}
+When the expected cost of verification exceeds the expected utility of action,
+\begin{equation}
+C_{\mathrm{ver}} > \mathbb{E}[U_{\mathrm{act}}] \implies \text{Stasis},
+\label{eq:freeze}
+\end{equation}
+rational agents wait. When every agent waits because first-movers are exploited by unverified claims, the system reaches a Nash equilibrium that is individually rational but collectively catastrophic. This is not gridlock from incompetence; it is a structural property of the decision network under high $\Delta V$.
+
+% [I2] Worked example for the Freezing Equilibrium
+\emph{Worked example.} Consider an environmental regulatory agency that receives permit applications with AI-generated environmental impact assessments. Before AGI, the agency processed 200 assessments per year, each requiring approximately 40 analyst-hours to verify. An AGI-augmented consulting industry now generates 2{,}000 assessments annually of comparable apparent quality. The agency's verification capacity has not scaled proportionally. Analysts, unable to distinguish rigorous from confabulated assessments without full review, face inequality~\eqref{eq:freeze}: the expected cost of verifying any single assessment exceeds the expected utility of approving it (since approval of an unverified fraudulent assessment carries career and legal risk). Rational analysts defer decisions. Development stalls, not from regulatory opposition, but from verification paralysis. The Freezing Equilibrium is not a failure of will; it is the predictable outcome of a verification bottleneck under conditions of high $\Delta V$.
+
+\paragraph{The metamaterial analogy as theory.}
+Engineered metamaterials, periodic microstructures that produce emergent macro-properties such as photonic bandgaps, mechanical anisotropy, and phase transitions, offer more than a metaphor. The analogy generates specific, falsifiable predictions that a generic ``governance framework'' would not: that certain failure modes can be \emph{forbidden} by microstructure design (bandgaps), that coordination improvements are directional (anisotropy), that interventions are superadditive (synergy), and that withdrawal is asymmetrically costly (hysteresis). If these predictions fail empirically, the metamaterial framing is wrong and should be discarded. If they hold, the framing becomes a design language for institutional engineering.
+
+% [C2] Explicit distinction: heuristic vs. generative functions of the analogy
+The analogy serves two functions: \emph{heuristic} (organizing disparate phenomena under a single design language) and \emph{generative} (importing structural predictions that a plain branching-process model does not produce). We distinguish these throughout.
+
+\paragraph{Contribution.}
+The treatment of governance rules as designable microstructure extends Ostrom's institutional design tradition~\cite{ostrom1990governing} by providing a formal threshold criterion ($R_{\mathrm{eff}} < 1$) for when the institutional design is sufficient.
+
+This paper makes four contributions: (1)~a phenomenological constitutive law for institutional coordination, parameterized by designable features, with a sharp phase transition (Section~\ref{sec:constitutive}); (2)~a three-class provenance taxonomy identifying \emph{context binding} as the missing third class (Section~\ref{sec:provenance}); (3)~treatment of AI agents as ``synthetic principals'' requiring distinct governance primitives (Section~\ref{sec:synthetic}); (4)~four falsifiable hypotheses with a concrete experimental design (Section~\ref{sec:empirical}).
+
+
+%===================================================================
+\section{The Constitutive Law and Phase Transition}
+\label{sec:constitutive}
+%===================================================================
+
+% [C1] Situate in branching-process and cascade-failure literature
+The model belongs to the family of stochastic branching processes~\cite{anderson1991infectious,hethcote2000mathematics} and cascading failure analysis~\cite{watts2002simple,buldyrev2010catastrophic,dobson2024cascading}. We contribute an \emph{institutional parameterization}: (i)~$\beta$ is a \emph{design variable} under institutional control, not an exogenous rate; (ii)~the effective reproduction rate decomposes into actionable targets ($\rho$, $\tau$) with a synergy term ($\gamma$); and (iii)~the provenance taxonomy (Section~\ref{sec:provenance}) makes these parameters measurable.
+
+\subsection{Failure Propagation as a Branching Process}
+
+Institutional stability is a structural property dictated by the rate at which errors propagate across decision nodes. Each node in a decision network acts as either a signal attenuator or a failure amplifier. We model this as a stochastic branching process parameterized by four quantities:
+
+\begin{itemize}
+\item \textbf{Branching factor} $\beta$: the average number of downstream nodes a single decision impacts. This is \emph{endogenous}: rate limits, delegation boundaries, and dual-control requirements reduce $\beta$ directly.
+\item \textbf{Provenance fidelity} $\rho \in [0,1]$: the probability that the source and transformation history of information is cryptographically bound to the decision unit.
+\item \textbf{Verification rate} $\tau \in [0,1]$: the probability that a node detects and halts an erroneous claim.
+\item \textbf{Synergy coefficient} $\gamma \geq 0$: an interaction term capturing that high-$\rho$ systems make verification cheaper (clear lineage speeds audits) and high-$\tau$ systems incentivize provenance (actors provide documentation when they know it will be checked).
+\end{itemize}
+
+% [C3] Reframe R_eff as phenomenological ansatz with sequential-filter justification
+We propose the following phenomenological constitutive law for the effective failure propagation rate:
+\begin{equation}
+R_{\mathrm{eff}} = \beta \cdot (1-\rho) \cdot (1-\tau) \cdot (1+\gamma \rho \tau).
+\label{eq:reff}
+\end{equation}
+
+$R_{\mathrm{eff}}$ is a \emph{phenomenological ansatz}: its justification is empirical, like Hooke's law or Ohm's law. The multiplicative structure $(1-\rho)(1-\tau)$ reflects sequential filtering: at each node, an error must survive both a provenance check and a verification check. The independence assumption is a simplification that the synergy term $\gamma$ partially corrects.
+
+The synergy term $(1+\gamma\rho\tau)$ captures mutual reinforcement between provenance and verification. The bilinear form is the simplest interaction that vanishes when either $\rho$ or $\tau$ is zero. The qualitative superadditivity prediction (H3) is robust to the functional form; quantitative thresholds depend on the specific interaction and must be empirically calibrated (Section~\ref{sec:sensitivity}).
+
+\subsection{The Phase Transition}
+
+The system exhibits a sharp phase transition at $R_{\mathrm{eff}} = 1$. This threshold property is inherited from the branching-process model class~\cite{anderson1991infectious,hethcote2000mathematics} and is not, in itself, a novel prediction:
+
+\begin{itemize}
+\item \textbf{Damped regime} ($R_{\mathrm{eff}} < 1$): Errors decay exponentially with network depth. The system is self-healing; tail risk is bounded.
+\item \textbf{Turbulent regime} ($R_{\mathrm{eff}} > 1$): Errors amplify exponentially. The system is self-destabilizing; cascade depth follows a power-law distribution with fat tails.
+\end{itemize}
+
+What the institutional parameterization adds is that the sub-critical condition $R_{\mathrm{eff}} < 1$ can be \emph{engineered} rather than merely observed: $\beta$ can be constrained by delegation policy, $\rho$ can be increased by provenance infrastructure, and $\tau$ can be raised by verification protocols. The constitutive law makes the relationship between these design choices and system-level stability quantitative.
+
+The critical verification threshold for a given branching factor is $\tau^* = 1 - 1/\beta$ (in the simplified case where $\rho = 0$ and $\gamma = 0$). For a standard hierarchical panel with $\beta = 10$, stability requires $\tau > 0.90$. If AGI-accelerated delegation pushes the effective branching factor to $\beta = 50$, the required verification fidelity reaches $0.98$, a threshold that legacy institutions cannot sustain without automated scaffolding.
+
+The synergy term $(1 + \gamma \rho \tau)$ is crucial: because it multiplies rather than adds, combined provenance and verification interventions are \emph{superadditive}. A small coordinated improvement in both $\rho$ and $\tau$ can flip the system from turbulent to damped (Fig.~\ref{fig:phase}), whereas equivalent improvements in either alone may not.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig02-phase-transition.pdf}
+\caption{Phase transition diagram for $R_{\mathrm{eff}}$ in the $(\rho, \tau)$ parameter space ($\beta=10$, $\gamma=1$). The bold contour marks the critical boundary $R_{\mathrm{eff}}=1$; blue region is damped (self-healing), red is turbulent (self-destabilizing). Three archetypal institutional positions are shown. Inset: boundary shift under varying branching factor $\beta$.}
+\label{fig:phase}
+\end{figure}
+
+\subsection{The Branching Factor as a Design Variable}
+
+Unlike natural epidemiological branching, $\beta$ in institutional networks is a \emph{design parameter}. Rate limits bound the maximum $\beta$. Delegation boundaries partition the network into sub-graphs. Dual-control requirements reduce the effective $\beta$ for high-impact decisions. This means that scaffolding can attack all three terms in~\eqref{eq:reff} simultaneously: reducing $\beta$, increasing $\rho$, and increasing $\tau$.
+
+Analogously to metamaterial design, where bandgap width depends on lattice periodicity and contrast ratio, the coordination ``bandgap'', the range of failure modes that cannot propagate, depends on the combination of delegation constraints, provenance requirements, and verification protocols. The constitutive law makes this dependence quantitative and testable.
+
+
+%===================================================================
+\section{A Three-Class Provenance Taxonomy}
+\label{sec:provenance}
+%===================================================================
+
+Current scaffolding initiatives focus on two provenance mechanisms: content provenance (C2PA~\cite{c2pa2024}) and identity verification (Proof of Personhood). Neither addresses the full attack surface. We propose three complementary classes.
+
+\subsection{Class A: Cryptographic Provenance}
+
+Cryptographic provenance establishes the chain of custody from origin to current state via signatures that are computationally infeasible to forge. The C2PA Technical Specification~2.0 embeds tamper-evident manifests directly within asset bitstreams using JUMBF structures, including hash assertions for content binding and action assertions for transformation history~\cite{c2pa2024}.
+
+\emph{Failure mode}: Key compromise, implementation bugs, or capture of the signing infrastructure. \emph{Mitigation}: Hardware security modules, key rotation, distributed signing, and audit of signing infrastructure.
+
+\subsection{Class B: Institutional Provenance}
+
+A document signed by a ministry has institutional provenance: the reputation of the signing entity provides assurance beyond the cryptographic fact. The IETF SCITT standard~\cite{birkholz2025scitt} operationalizes this by submitting signed statements to a Transparency Service that issues receipts anchored in an append-only Merkle tree, preventing equivocation: an institution cannot repudiate a decision without invalidating the cryptographic proof held by downstream parties.
+
+\emph{Failure mode}: Institutional corruption, capture, or incompetence. The signature is valid but the institution's judgment is compromised. \emph{Mitigation}: Separation of powers, external audit, competitive verification markets, and reputation tracking.
+
+A critical insight: high cryptographic provenance with low institutional provenance (a corrupt institution with perfect signatures) is more dangerous than the reverse, because the cryptographic validity provides false assurance.
+
+\subsection{Class C: Context Binding (Novel Contribution)}
+\label{sec:contextbinding}
+
+Classes A and B secure integrity and attribution but fail against \emph{``Valid Credential, Invalid Context''} attacks, where adversaries replay authorized outputs outside their intended temporal window, jurisdiction, or decision scope. A signed resource authorization from Q1 is re-injected in Q3; a regulatory approval for jurisdiction A is cited in jurisdiction B. Current standards do not prevent this.
+
+% [M1] Renamed β_c to σ_c to avoid confusion with branching factor β
+Context binding, governed by a strictness parameter $\sigma_c$, tethers decisions to specific operational boundaries. Implementation utilizes Structured Rationale Capture (SRC): synthetic principals commit to a reasoning path \emph{before} outcome realization, creating a ``Decision Anchor'' that makes post-hoc rationalization computationally infeasible. The protocol nests SRC data within C2PA \texttt{c2pa.actions.v2} assertions using the \texttt{parameters-map-v2} extension~\cite{c2pa2024}.
+
+\textbf{Worked example.} A government procurement panel receives an AI-generated application citing a research partnership with University~X, signed with a valid C2PA manifest (Class~A) by a recognized research council (Class~B). The partnership was genuine, but it expired six months ago. Without context binding, the claim propagates through review because its cryptographic and institutional provenance are intact. With context binding, the temporal scope tag in the SRC metadata triggers a mismatch against the current decision window: the verification cost becomes $O(1)$ rather than requiring a manual check of partnership status, and the claim is flagged before it influences scoring.
+
+This mechanism directly addresses the Freezing Equilibrium. By enabling constant-time context verification, SRC reduces $C_{\mathrm{ver}}$ to a level where inequality~\eqref{eq:freeze} reverses, unfreezing the decision pipeline.
+
+\subsection{Two Types of Legibility}
+
+Following Scott's critique of state-imposed legibility~\cite{scott1998seeing,rao2010legibility}, the framework distinguishes:
+
+\begin{itemize}
+\item \textbf{Rule-following legibility}: Did this process follow the specified protocol? This is amenable to zero-knowledge proofs: an entity can prove it checked a watchlist without revealing who was checked.
+\item \textbf{Judgment legibility}: Was this decision wise? Were relevant considerations weighed? This \emph{cannot} be reduced to protocol compliance. It requires structured rationale capture, adversarial review, and outcome-linked accountability.
+\end{itemize}
+
+\emph{Design principle}: Audit the process via ZKP. Audit the judgment via structured rationale and outcome tracking. Never require content disclosure when process compliance is sufficient. This resolves the legibility--privacy tension that Scott identified: we can make institutions auditable without making them panoptic.
+
+% [I4] Map provenance taxonomy onto existing standards (NIST AI RMF, ISO 42001)
+\subsection{Relation to Existing Governance Standards}
+
+The three-class taxonomy maps onto and extends existing governance frameworks. The NIST AI Risk Management Framework~\cite{nist2023airm,nist2024genai} addresses provenance through its ``Map'' and ``Measure'' functions, requiring organizations to document AI system inputs and outputs; ISO/IEC~42001~\cite{iso42001} mandates management-system controls for AI lifecycle documentation; and NIST~SP~800-53~\cite{nist2020sp800} specifies audit and accountability controls including AU-10 (non-repudiation). These frameworks provide robust coverage of Classes~A and~B. However, none currently addresses Class~C, context binding, which requires tethering a credential or decision to a specific temporal, jurisdictional, and scope boundary. The taxonomy's contribution is to identify this gap and propose SRC as a mechanism to fill it, complementing rather than replacing the existing control architectures.
+
+
+%===================================================================
+\section{Synthetic Principals: AI Agents as Governance Nodes}
+\label{sec:synthetic}
+%===================================================================
+
+The framework treats AI agents not merely as tools but as \emph{nodes in the decision network} with distinct governance requirements. As AI agents increasingly generate, delegate, and execute decisions autonomously, they become ``synthetic principals'' requiring identity, provenance, and accountability primitives that differ from both human actors and passive software.
+
+\paragraph{Identity and capability attestation.}
+Each AI agent instance requires a non-repudiable cryptographic identity bound to, but distinct from, its operator's identity. This identity should include attested capabilities and permissions~\cite{narvaneni2025agent}. For agents that spawn sub-agents, the delegation chain must be preserved, maintaining an auditable lineage from the authorizing human principal through every layer of delegation.
+
+\paragraph{Provenance requirements for AI outputs.}
+AI-generated decisions require three provenance layers: input provenance (what data was consumed, from what sources, with what transformations), structured reasoning metadata (auditable traces, not full chain-of-thought which may be confabulated), and explicit confidence bounds that propagate through downstream decisions.
+
+\paragraph{Verification challenges specific to AI.}
+Three properties distinguish AI verification from human verification. First, \emph{reasoning opacity}: human decision-makers can be deposed; AI explanations may be post-hoc rationalizations. Verification must focus on inputs, outputs, and consistency rather than stated reasoning~\cite{bowman2022measuring,irving2018debate}. Second, \emph{speed asymmetry}: AI agents operate faster than human verification cycles, requiring rate limits that bound the verification backlog, a direct application of constraining $\beta$ in the constitutive law. Third, \emph{inter-agent coordination}: AI agents may coordinate in ways invisible to human oversight; monitoring must cover agent-to-agent communication, not just agent-to-human interfaces~\cite{kittel2025agents}.
+
+% [R2] Merged multi-agent governance and alignment paragraphs to remove redundancy
+\paragraph{Relation to multi-agent governance and AI alignment.}
+The synthetic principals framework connects to a growing literature on AI agent oversight. Chan et al.~\cite{chan2024visibility} argue that visibility into AI agent behavior requires monitoring not just individual outputs but the emergent dynamics of agent collectives, a concern directly addressed by our constitutive law, which models error propagation across networks of agents rather than individual agent reliability. Shavit et al.~\cite{shavit2023practices} propose structured delegation practices for AI systems, including explicit capability attestation and human-in-the-loop checkpoints at delegation boundaries; these practices map directly onto our $\rho$ (provenance at delegation handoffs) and $\tau$ (verification at checkpoints) parameters. More broadly, scalable oversight proposals~\cite{christiano2017deep,bowman2022measuring} address a related problem: how to supervise AI systems that exceed human capability, but typically assume a single principal--agent relationship. The metamaterial framework extends this to networks of synthetic principals with recursive delegation, providing a quantitative criterion ($R_{\mathrm{eff}} < 1$) for when the oversight architecture is sufficient across the full delegation network, not just at individual handoff points, and when it has failed ($R_{\mathrm{eff}} > 1$).
+
+
+%===================================================================
+\section{Trust Anchors: Where the Recursion Bottoms Out}
+\label{sec:trust}
+%===================================================================
+
+If provenance and verification are enforced by infrastructure, who audits the infrastructure? The recursion must terminate in trust anchors: mechanisms whose integrity is maintained by design constraints rather than further verification layers.
+
+We identify four candidate classes, each with distinct failure modes: \emph{constitutional commitments} (entrenched rules requiring supermajorities to alter; failure mode: constitutional capture), \emph{distributed consensus} (Byzantine-fault-tolerant verification where no single party controls the process; failure mode: collusion or 51\% attacks), \emph{international treaty bodies} (multi-jurisdictional oversight; failure mode: great-power defection), and \emph{competitive verification markets} (independent auditors with reputational stakes; failure mode: cartel formation).
+
+The design principle follows the metamaterial analogy: no single anchor is sufficient, just as no single layer of a metamaterial produces the desired macro-property. Robust scaffolding combines anchors with orthogonal failure modes, so that compromise of one layer does not cascade through the system. The constitutive law provides a quantitative test: the combined trust anchor configuration must keep $R_{\mathrm{eff}} < 1$ under realistic adversarial assumptions about individual anchor compromise.
+
+
+%===================================================================
+\section{Falsifiable Hypotheses and Empirical Design}
+\label{sec:empirical}
+%===================================================================
+
+\subsection{Four Signature Predictions}
+
+The metamaterial framing generates predictions that a generic governance framework would not. If these fail empirically, the framing should be discarded. We are explicit about which predictions are inherited from the branching-process model class and which depend on the metamaterial analogy.
+
+% [R2] Sharpened H1 — bandgap mechanism grounded in institutional periodicity
+\paragraph{H1: The Bandgap Effect.}
+By enforcing mandatory provenance ($\rho >$ threshold) and dual-control verification ($\tau >$ threshold), specific failure classes, hallucinated precedents, unverified transactions, replayed authorizations, become forbidden states that cannot propagate deeper than $N$ nodes. \emph{Prediction}: Baseline pipelines show power-law distribution of error propagation depth (fat tails). Scaffolded pipelines show exponential decay (sharp cutoff at the bandgap).
+
+\emph{The bandgap mechanism.} In metamaterial physics, bandgaps arise from destructive interference when waves encounter \emph{periodic} contrasts in material properties. The institutional analog is \emph{mandatory dual-control checkpoints applied uniformly at every delegation boundary}. When the ``lattice'' of institutional controls is periodic, specific failure modes become structurally impossible: a replayed authorization (Class~C attack) cannot propagate past even a single node with context binding active. The failure mode is \emph{forbidden by structure}, not merely attenuated by probability. In a heterogeneous branching process, a claim can propagate deep via a sequence of weak nodes; in a periodic verification structure, there is no such ``lucky path.'' Distinguishing a true structural bandgap from deep sub-critical behavior would require larger samples than the proposed pilot; we flag this as a priority for follow-up analysis.
+
+% [R2] Formalized H2 — anisotropy with directional R_eff equations
+\paragraph{H2: Coordination Anisotropy.}
+High-velocity AI agents optimized for local throughput will destroy cross-boundary coordination unless interface protocols are specifically engineered. \emph{Prediction}: Without interface scaffolding, increased within-unit productivity (AI drafting) \emph{increases} cross-unit latency (review bottlenecks, integration failures). With interface scaffolding, cross-boundary metrics improve sharply with a threshold effect.
+
+\emph{Formalization.} The directional decomposition applies the constitutive law separately to within-unit and cross-boundary propagation paths, recognizing that these paths have different parameter values:
+\begin{align}
+R_{\mathrm{eff}}^{\mathrm{intra}} &= \beta_{\mathrm{intra}} \cdot (1-\rho_{\mathrm{intra}}) \cdot (1-\tau_{\mathrm{intra}}) \cdot (1+\gamma_{\mathrm{intra}}\, \rho_{\mathrm{intra}}\, \tau_{\mathrm{intra}}), \label{eq:rintra} \\
+R_{\mathrm{eff}}^{\mathrm{cross}} &= \beta_{\mathrm{cross}} \cdot (1-\rho_{\mathrm{cross}}) \cdot (1-\tau_{\mathrm{cross}}) \cdot (1+\gamma_{\mathrm{cross}}\, \rho_{\mathrm{cross}}\, \tau_{\mathrm{cross}}). \label{eq:rcross}
+\end{align}
+AI acceleration typically reduces $\beta_{\mathrm{intra}}$ while increasing $\beta_{\mathrm{cross}}$; simultaneously, $\rho_{\mathrm{intra}} > \rho_{\mathrm{cross}}$ and $\tau_{\mathrm{intra}} > \tau_{\mathrm{cross}}$ because provenance and verification are easier within shared contexts. The anisotropy prediction follows: $R_{\mathrm{eff}}^{\mathrm{intra}} < 1$ and $R_{\mathrm{eff}}^{\mathrm{cross}} > 1$ can hold simultaneously, producing a system that appears locally healthy while failing at interfaces. A scalar $R_{\mathrm{eff}}$ does not capture this; the prediction is motivated by the metamaterial concept of anisotropic response. The pilot can test this by measuring cascade depth separately for within-panel and cross-panel propagation.
+
+\paragraph{H3: Provenance--Verification Superadditivity.}
+Combined provenance and verification interventions are superadditive ($\gamma > 0$ in the constitutive law). \emph{Prediction}: In a factorial design testing all four combinations of (low/high $\rho$) $\times$ (low/high $\tau$), the high--high condition outperforms the sum of the two single-intervention conditions. \emph{Note}: This prediction follows from the constitutive law's synergy term and does not require the metamaterial analogy; it is a property of the model's interaction structure.
+
+% [C2] Moderated H4 — acknowledge weakest analogical import
+\paragraph{H4: Structural Hysteresis.}
+Withdrawal of scaffolding yields asymmetric performance loss. Three mechanisms drive this: trust asymmetry (trust is built linearly but destroyed as a step function), skill atrophy (operators lose checking habits when scaffolding automates verification), and expectation reset (stakeholders calibrate to scaffolded performance, creating legitimacy penalties when it degrades). \emph{Prediction}: Recovery time after scaffolding withdrawal exceeds original adoption time by a factor $>3$. \emph{Note}: Hysteresis appears in many dynamical systems and is not unique to metamaterials. We invoke the metamaterial framing here as a heuristic: the analogy to structural memory in physical metamaterials motivates the specific asymmetry prediction, but we acknowledge this is the weakest of the four analogical imports. The prediction's value is primarily empirical: if withdrawal costs are symmetric with adoption costs, the hysteresis mechanism is not operating.
+
+\subsection{Proposed Pilot: Government Grant Review}
+
+We propose a 12-week stepped-wedge cluster-randomized trial across government R\&D grant review panels, chosen because they provide controlled, comparable units with real stakes.
+
+\paragraph{Design.}
+Twenty comparable panels are randomized: 10 treatment (scaffolded), 10 control (baseline). The baseline condition uses standard PDF submissions, manual eligibility screening, unstructured peer review, and summary memo documentation. The scaffolded condition adds structured data intake with mandatory provenance fields, automated eligibility filtering with audit trails, dual-blind review with structured scoring rubrics, pre-commitment (reviewers record initial scores before deliberation), structured rationale capture linked to rubric criteria, and randomized sampling audits with escalation triggers. Panels are stratified by domain (STEM, humanities, social sciences), panel size, and historical funding rate to ensure comparability (Fig.~\ref{fig:trial}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig07-trial-design.pdf}
+\caption{Stepped-wedge cluster-randomized trial design. Twenty panels cross from control (gray) to scaffolded (blue) conditions at staggered intervals over 12 weeks. Tracer errors are injected at weeks 4, 8, and 12 to measure cascade propagation depth.}
+\label{fig:trial}
+\end{figure}
+
+\paragraph{Primary endpoint.}
+P95 cascade depth of injected tracer errors, harmless but detectable false claims seeded into \emph{synthetic calibration applications} (see Section~\ref{sec:ethics} for safeguards). This directly operationalizes the bandgap hypothesis.
+
+\paragraph{Secondary endpoints.}
+Time-to-decision (days from submission to notification), protest rate (formal appeals as a proxy for perceived legitimacy), shadow work rate (percentage of review activity occurring outside the official system), reviewer workload (hours per application), and decision consistency (inter-rater reliability on calibration applications reviewed by multiple panels).
+
+% [I1] Expanded power analysis
+\paragraph{Power analysis.}
+With 20 panels and 75 applications per panel, the design achieves 80\% power to detect a 30\% reduction in P95 cascade depth at $\alpha = 0.05$, under the following assumptions: intra-cluster correlation (ICC) of 0.05, consistent with published ICCs for stepped-wedge trials in administrative settings~\cite{hemming2015stepped}; a coefficient of variation of 0.3 for baseline cascade depth; and a design effect of $1 + (m-1) \times \mathrm{ICC}$ where $m = 75$ applications per panel. Table~\ref{tab:icc} shows the sensitivity of required panel counts to the ICC assumption.
+
+\begin{table}[t]
+\centering
+\caption{Required number of panels (total, treatment + control) to achieve 80\% power at $\alpha = 0.05$ for a 30\% reduction in P95 cascade depth, as a function of intra-cluster correlation (ICC). Assumes 75 applications per panel and CV = 0.3.}
+\label{tab:icc}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ICC & 0.01 & 0.05 & 0.10 & 0.15 \\
+\midrule
+Panels required & 12 & 20 & 32 & 44 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Hard guardrail.}
+No intervention is successful if mean throughput improves while tail risk worsens. Success is defined as a vector improvement: cascade depth reduction \emph{without} increased decision latency or shadow work rate.
+
+% [C4] New subsection: Ethical Safeguards
+\subsection{Ethical Safeguards}
+\label{sec:ethics}
+
+The tracer-error methodology requires IRB approval and four safeguards. First, tracer errors are injected exclusively into fabricated \emph{synthetic calibration applications}, not real submissions; these are flagged in the trial backend and cannot influence real funding decisions, following established ``mystery shopper'' methodology~\cite{wendler2004deception}. Second, no real applicant's submission is modified, delayed, or disadvantaged; the stepped-wedge design ensures all panels eventually receive scaffolding. Third, reviewers are informed of quality-assurance measures but the specific nature of tracers is disclosed only post-trial (standard minimal-deception protocol with mandatory debriefing). Fourth, all reviewer performance data is anonymized before analysis and used only in aggregate.
+
+
+%===================================================================
+\section{Discussion}
+\label{sec:discussion}
+%===================================================================
+
+\subsection{Political Economy of Scaffolding}
+
+Scaffolding is not politically neutral. Opacity produces informational rents for incumbents: middle managers, gatekeepers, and intermediaries who derive power from information asymmetry~\cite{holmstrom1991multitask}. Making a system legible redistributes power from information hoarders to auditors and high performers. Organizations with weak provenance and opaque delegation may be weak precisely because powerful actors benefit from that opacity.
+
+This creates an adoption barrier that purely technical solutions cannot overcome. The framework addresses it through incentive compatibility: scaffolding must offer high-performers ``fast lanes'' (reduced audit friction via proven reputation, expanded delegation authority, portable reputation assets) while imposing friction on opaque actors. If legibility does not yield individual utility: speed, agency, credit; it will be circumvented via shadow systems, violating the stability constraint.
+
+\subsection{The Stability Constraint}
+
+% [M2] Reframed shadow IT thresholds as illustrative ranges
+Human cognitive capacity is a binding constraint. If scaffolding increases verification burden beyond a threshold, users bypass the secure system via shadow IT. Illustrative thresholds: roughly 5\% overhead tolerance for high-stakes domains (nuclear, medical, financial), approximately 20\% for lower-stakes domains. These are starting hypotheses, not precise targets. The design implication: verification must be \emph{zero-attention} in the normal case, demanding cognition only for anomalies.
+
+% [C3] New subsection: Sensitivity Analysis
+\subsection{Sensitivity of the Constitutive Law to Functional Form}
+\label{sec:sensitivity}
+
+The constitutive law (Eq.~\ref{eq:reff}) is a phenomenological ansatz. Its qualitative predictions, phase transition at $R_{\mathrm{eff}} = 1$, superadditivity of combined interventions, are robust to the choice of synergy term. However, quantitative predictions (critical thresholds, power calculations) depend on the specific interaction form. We briefly examine how the critical verification threshold $\tau^*$ (for a given $\beta$ and $\rho$) shifts under three alternative synergy specifications:
+
+\begin{enumerate}
+\item \textbf{Bilinear (baseline):} $(1+\gamma\rho\tau)$. The form used throughout this paper. $\tau^*$ decreases as $\rho$ increases, with the rate of decrease modulated by $\gamma$.
+\item \textbf{Additive:} $(1+\gamma(\rho+\tau)/2)$. Synergy accrues even with only one intervention active. This produces more conservative thresholds (higher $\tau^*$ for a given $\rho$) because the synergy term exceeds the bilinear baseline across most of the parameter space.
+\item \textbf{Quadratic:} $(1+\gamma(\rho\tau)^2)$. Synergy is convex and weak at moderate parameter values, growing rapidly only when both $\rho$ and $\tau$ are high. This produces more optimistic thresholds (lower $\tau^*$) but stronger lock-in effects once high $\rho$ is achieved.
+\end{enumerate}
+
+\emph{Worked example.} For $\beta = 10$, $\rho = 0.5$, and $\gamma = 1$, we compute the critical verification threshold $\tau^*$ (the minimum $\tau$ required for $R_{\mathrm{eff}} = 1$) under each specification:
+\begin{itemize}
+\item \textbf{Bilinear:} Solving $10 \cdot 0.5 \cdot (1-\tau) \cdot (1 + 0.5\tau) = 1$ yields $\tau^* \approx 0.860$.
+\item \textbf{Additive:} Solving $10 \cdot 0.5 \cdot (1-\tau) \cdot (1.25 + 0.5\tau) = 1$ yields $\tau^* \approx 0.882$.
+\item \textbf{Quadratic:} Solving $10 \cdot 0.5 \cdot (1-\tau) \cdot (1 + 0.25\tau^2) = 1$ yields $\tau^* \approx 0.829$.
+\end{itemize}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig05-sensitivity-analysis.pdf}
+\caption{Sensitivity of the critical verification threshold $\tau^*$ to synergy specification. (A)~Bar chart at $\beta=10$, $\rho=0.5$, $\gamma=1$: the three synergy forms yield $\tau^* \in [0.829, 0.882]$. (B)~$\tau^*$ as a function of $\rho$ for each form. The $\pm 3$\,pp spread indicates qualitative robustness of design guidance.}
+\label{fig:sensitivity}
+\end{figure}
+
+The choice of synergy specification shifts $\tau^*$ by approximately $\pm 3$ percentage points (Fig.~\ref{fig:sensitivity}). For policy purposes, this means that qualitative design guidance (target $\tau > 0.85$ for $\beta = 10$ with moderate provenance) is robust to model uncertainty, but precise threshold calibration requires empirical data. The proposed pilot (Section~\ref{sec:empirical}) can resolve this: the factorial design testing (low/high $\rho$) $\times$ (low/high $\tau$) provides the data needed to estimate the interaction structure and discriminate between functional forms.
+
+\subsection{Limitations and Open Questions}
+
+Several limitations bound the current framework. The constitutive law parameters require empirical estimation, and the model's utility depends on whether they can be measured reliably. The scale translation claim (organizational dynamics predicting civilizational phenomena) remains a hypothesis. Adversarial dynamics are treated as exogenous; a fuller treatment would model co-evolution of scaffolding and adversarial strategy. A first-principles derivation from micro-level institutional decision-making would place the ansatz on firmer footing. Finally, the metamaterial framing relies on qualitative analogical reasoning; importing formal homogenization theory and dispersion-relation analysis is a priority for future work.
+
+\subsection{Relation to AI Safety and Alignment}
+
+The framework complements technical AI alignment~\cite{amodei2016concrete,gabriel2020artificial}: alignment ensures individual systems pursue intended goals; the metamaterial framework ensures institutional coordination survives when networks of agents operate beyond human oversight capacity~\cite{hendrycks2022xrisk}. $R_{\mathrm{eff}}$ operationalizes the scalable oversight agenda~\cite{bowman2022measuring} at the institutional level. Ostrom's institutional design tradition~\cite{ostrom1990governing} suggests a further direction: applying the constitutive law to multi-jurisdictional commons problems (climate governance, pandemic response, spectrum allocation).
+
+
+%===================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%===================================================================
+
+AGI's dominant impact is the acceleration of decision velocity beyond institutional verification capacity. We have proposed governance engineering, the deliberate design of coordination microstructures, as the response. The constitutive law $R_{\mathrm{eff}} = \beta \cdot (1-\rho) \cdot (1-\tau) \cdot (1+\gamma \rho \tau)$ provides a quantitative stability criterion with a sharp phase transition. The provenance taxonomy identifies context binding as the critical gap; the synthetic principals framework connects to AI alignment; and the four falsifiable hypotheses ensure empirical accountability. The next step is the proposed procurement pilot. If the predictions fail, the framework should be discarded; if they hold, governance engineering becomes a discipline with quantitative foundations. Code and supplementary materials: \url{https://github.com/davidorban/civilizationalmetamaterials}.
+
+\paragraph{Disclosure.} AI writing assistants (Claude, Gemini, GPT) were used during drafting and revision. The author is solely responsible for all intellectual content and claims.
+
+\bibliographystyle{splncs04}
+\bibliography{references-r3}
+
+\end{document}
