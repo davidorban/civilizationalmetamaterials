@@ -21,6 +21,30 @@ adapted for an academic repository.
 
 ---
 
+
+---
+
+## Phase 5 — 2026-04-23
+
+### Added
+
+- `experiments/README.md` — trial overview and quick-start guide.
+- `experiments/protocol/protocol-v0.1.md` — full stepped-wedge CRT protocol draft.
+- `experiments/protocol/consent-form-template.md` — informed consent template.
+- `experiments/protocol/SAP.md` — pre-specified statistical analysis plan.
+- `experiments/protocol/preregistration-OSF.md` — OSF/AsPredicted template, ready to paste.
+- `experiments/power/power_analysis.py` — ICC sensitivity, design effect, power curves.
+- `experiments/power/power_curves.pdf` — pre-generated power curves (ICC ∈ {0.01,0.05,0.10,0.15}).
+- `experiments/instruments/data-dictionary.md` — variable definitions.
+- `experiments/instruments/verification-timer-app/index.html` — standalone browser timer for τ measurement.
+- `experiments/synthetic/generate_synthetic_panels.py` — generates synthetic panel-level fixtures.
+- `experiments/synthetic/fixtures/panels_h1.csv` and `panels_h234.csv` — pre-generated synthetic data.
+- `experiments/analysis/primary_endpoint.py` — H1 logistic regression analysis.
+- `experiments/analysis/secondary_h2_h4.py` — H2 synergy, H3 anisotropy, H4 hysteresis.
+- `experiments/analysis/simulate_trial.py` — Monte Carlo under null/alternative; reports type-I error, power, bias.
+
+All scripts marked as **proposed, not registered** — no IRB filing has been made.
+
 ## Phase 4 — 2026-04-23
 
 ### Added
