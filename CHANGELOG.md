@@ -24,6 +24,27 @@ adapted for an academic repository.
 
 ---
 
+
+---
+
+## Phase 6 — 2026-04-23  (v1.0.0)
+
+### Added / Changed
+
+- Final README polish: fixed COLLABORATION.md link, up-to-date repository map.
+- CHANGELOG.md: all six phases documented.
+- `v1.0.0` tag created on main. On push, Zenodo will mint the archival DOI.
+- Once the DOI is available: update `CITATION.cff` (`doi:` field),
+  update `docs/index.html` (`#doi-placeholder`), and push arXiv v1.
+
+### Manual steps remaining for the author
+
+1. Push the tag: `git push origin v1.0.0`
+2. Enable the Zenodo–GitHub webhook at https://zenodo.org/account/settings/github/
+3. Copy the Zenodo DOI into `CITATION.cff` (`doi:`) and `docs/index.html` (`#doi-placeholder`).
+4. Flip `CITATION.cff` `status:` to `"Accepted, AGI-26. To appear in Springer LNCS/LNAI."` on acceptance.
+5. Submit arXiv preprint; update `docs/index.html` `#arxiv-link` with the real URL.
+
 ## Phase 5 — 2026-04-23
 
 ### Added
