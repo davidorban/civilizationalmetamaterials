@@ -1,4 +1,4 @@
-TEX := civilizational-metamaterials-agi26-r3
+TEX := civilizational-metamaterials-agi26-r4
 REPO := $(shell cd .. && pwd)
 PAPER_DIR := $(shell pwd)
 
@@ -29,10 +29,10 @@ figures:
 
 arxiv:
 	mkdir -p $(PAPER_DIR)/arxiv
-	cp $(PAPER_DIR)/$(TEX).tex $(PAPER_DIR)/references-r3.bib \
+	cp $(PAPER_DIR)/$(TEX).tex $(PAPER_DIR)/references-r4.bib \
 	   $(PAPER_DIR)/llncs.cls $(PAPER_DIR)/splncs04.bst \
 	   $(PAPER_DIR)/arxiv/
 	cp -r $(REPO)/figures/fig*.pdf $(PAPER_DIR)/arxiv/
 	tar -czf $(PAPER_DIR)/arxiv/$(TEX)-arxiv.tar.gz -C $(PAPER_DIR)/arxiv \
-	    $(TEX).tex references-r3.bib llncs.cls splncs04.bst fig*.pdf
+	    $(TEX).tex references-r4.bib llncs.cls splncs04.bst fig*.pdf
 	@echo "arXiv tarball: paper/arxiv/$(TEX)-arxiv.tar.gz"

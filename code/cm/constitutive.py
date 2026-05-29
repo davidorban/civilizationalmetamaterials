@@ -1,4 +1,9 @@
-"""Constitutive law: R_eff = β(1−ρ)(1−τ)(1+γρτ).
+"""Constitutive law: R_eff = β(1−ρ)(1−τ)(1−γρτ).
+
+The r4 (AGI-26 camera-ready) sign convention. γ ∈ [0, 1] measures
+correlated-detection synergy: provenance failures and verification
+failures target overlapping mechanisms, so their joint probability is
+below the independent baseline by γρτ.
 
 All functions are fully vectorized via NumPy broadcasting.
 """
@@ -20,7 +25,7 @@ def r_eff(
     beta  : Decision branching factor (≥ 1).
     rho   : Provenance fidelity ∈ [0, 1].
     tau   : Verification rate ∈ [0, 1].
-    gamma : Provenance–verification synergy (≥ 0).
+    gamma : Correlated-detection synergy coefficient ∈ [0, 1].
 
     Returns
     -------
@@ -30,7 +35,7 @@ def r_eff(
     rho  = np.asarray(rho,  dtype=float)
     tau  = np.asarray(tau,  dtype=float)
     gamma = np.asarray(gamma, dtype=float)
-    return beta * (1.0 - rho) * (1.0 - tau) * (1.0 + gamma * rho * tau)
+    return beta * (1.0 - rho) * (1.0 - tau) * (1.0 - gamma * rho * tau)
 
 
 def tau_star(

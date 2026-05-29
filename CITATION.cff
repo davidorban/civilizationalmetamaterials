@@ -19,11 +19,12 @@ abstract: >-
   the cost of validating AI-generated outputs exceeds the expected utility of
   acting on them, rational agents default to inaction: a stable but
   catastrophic Nash equilibrium we term the Freezing Equilibrium. We develop
-  a phenomenological constitutive law for institutional coordination and
-  predict a sharp phase transition between self-healing and self-destabilizing
-  regimes. We introduce a three-class provenance taxonomy including context
-  binding, and derive four falsifiable hypotheses with a proposed 12-week
-  stepped-wedge cluster-randomized trial.
+  a phenomenological constitutive law for institutional coordination,
+  R_eff = β·(1−ρ)·(1−τ)·(1−γρτ) with γ ∈ [0,1], and predict a sharp phase
+  transition between self-healing and self-destabilizing regimes. We introduce
+  a three-class provenance taxonomy including context binding, and derive four
+  falsifiable hypotheses with a proposed 12-week stepped-wedge cluster-
+  randomized trial.
 keywords:
   - AGI governance
   - coordination theory
@@ -33,22 +34,21 @@ keywords:
   - multi-agent systems
 license: MIT
 license-url: "https://github.com/davidorban/civilizationalmetamaterials/blob/main/LICENSE-CODE"
-version: "0.1.0-r3"
-date-released: "2026-04-15"
-# Status — update on acceptance:
-#   "Accepted, AGI-26. To appear in Springer LNCS/LNAI."
-#   and fill doi + preferred-citation below.
-status: "Under review at AGI-26"
+version: "0.1.0-r4"
+date-released: "2026-05-29"
+status: "Accepted for poster presentation at AGI-26. To appear in Springer LNAI."
 
 doi: "10.5281/zenodo.19710482"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19710482"
     description: Zenodo archival DOI (v1.0.0)
-# On arXiv submission, add:
-#   - type: other
-#     value: "arXiv:XXXX.XXXXX"
-#     description: arXiv preprint
+  - type: other
+    value: "arXiv:submit/7513752"
+    description: arXiv preprint (in moderation as of 2026-05-29; permanent ID assigned on approval)
+# On arXiv approval, replace the arXiv identifier value with the permanent ID
+# (e.g., "arXiv:2506.XXXXX") and uncomment the preferred-citation block below
+# once the Springer LNAI DOI is known.
 #
 # preferred-citation:
 #   type: conference-paper

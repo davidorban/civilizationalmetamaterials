@@ -9,28 +9,29 @@ from cm.constitutive import r_eff, tau_star, phase_boundary
 
 class TestReffCorners:
     def test_full_provenance_and_verification(self):
-        # ρ=1, τ=1 → R_eff = β*(0)*(0)*(1+γ) = 0
+        # ρ=1, τ=1 → R_eff = β*(0)*(0)*(1-γ) = 0
         assert r_eff(10, 1.0, 1.0, 1.0) == pytest.approx(0.0)
 
     def test_no_provenance_no_verification(self):
-        # ρ=0, τ=0 → R_eff = β*(1)*(1)*(1+0) = β
+        # ρ=0, τ=0 → R_eff = β*(1)*(1)*(1-0) = β
         assert r_eff(10, 0.0, 0.0, 1.0) == pytest.approx(10.0)
 
     def test_full_provenance_no_verification(self):
-        # ρ=1, τ=0 → R_eff = β*0*1*(1+γ) = 0
-        assert r_eff(10, 1.0, 0.0, 2.0) == pytest.approx(0.0)
+        # ρ=1, τ=0 → R_eff = β*0*1*(1-γ) = 0
+        assert r_eff(10, 1.0, 0.0, 1.0) == pytest.approx(0.0)
 
     def test_no_provenance_full_verification(self):
-        # ρ=0, τ=1 → R_eff = β*1*0*(1+0) = 0
-        assert r_eff(10, 0.0, 1.0, 2.0) == pytest.approx(0.0)
+        # ρ=0, τ=1 → R_eff = β*1*0*(1-0) = 0
+        assert r_eff(10, 0.0, 1.0, 1.0) == pytest.approx(0.0)
 
     def test_no_synergy(self):
         # γ=0 → R_eff = β*(1-ρ)*(1-τ)
         assert r_eff(5, 0.4, 0.6, 0.0) == pytest.approx(5 * 0.6 * 0.4)
 
     def test_phase_transition_known(self):
-        # β=10, ρ=0.5, τ=0.5, γ=1 → R_eff = 10*0.5*0.5*(1+0.25) = 3.125
-        assert r_eff(10, 0.5, 0.5, 1.0) == pytest.approx(3.125)
+        # r4 sign convention:
+        # β=10, ρ=0.5, τ=0.5, γ=1 → R_eff = 10*0.5*0.5*(1-0.25) = 1.875
+        assert r_eff(10, 0.5, 0.5, 1.0) == pytest.approx(1.875)
 
     def test_vectorized_over_rho(self):
         rho = np.array([0.0, 0.5, 1.0])

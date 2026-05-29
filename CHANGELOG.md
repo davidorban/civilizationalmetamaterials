@@ -12,20 +12,118 @@ adapted for an academic repository.
 
 ---
 
+## Phase 7 — 2026-05-29  (v1.0.1, r4 / AGI-26 camera-ready)
 
----
+The paper was accepted at AGI-26 for poster presentation. This phase
+incorporates substantive revisions in response to the three peer reviews,
+plus the H3 algebra correction Reviewer 3 identified, and prepares the
+camera-ready bundle that was uploaded to EasyChair on 2026-05-29.
 
+### Framework changes
 
----
+- **H3 sign correction.** The synergy term in the constitutive law was changed
+  from `(1+γρτ)` to `(1−γρτ)`, with `γ ∈ [0, 1]` reinterpreted as a
+  correlated-detection coefficient. Reviewer 3 identified that the published
+  form algebraically *amplified* `R_eff`, contradicting the paper's claim that
+  combined provenance and verification interventions outperform singletons.
+  Numerical check: at `β=10, γ=1, ρ=τ=0.7`, the old form gave a joint
+  reduction of 6.84 vs a sum-of-singletons reduction of 10.58. The corrected
+  form preserves the threshold-crossing claim of H3 (only the high-ρ, high-τ
+  condition crosses below `R_eff = 1` in moderate-β regimes).
+- **H3 prediction reformulated** from "outperforms the sum of singleton
+  interventions" (which is impossible for any multiplicative model) to a
+  threshold-crossing claim: only the high-ρ, high-τ condition produces
+  self-healing cascade behaviour at moderate `β`.
+- **Tier-2 substantive additions** in the manuscript:
+  - Formal Nash specification of the Freezing Equilibrium with explicit
+    payoffs (Reviewer 1).
+  - Structural-vs-heuristic classification of the four hypotheses against
+    metamaterial physics (Reviewers 1 and 3).
+  - Relation to W3C Verifiable Credentials in the Class C section
+    (Reviewer 3).
+  - AI-assisted verification paragraph addressing the human-bounded
+    `C_ver` assumption (Reviewer 2).
+  - Hawthorne-effect mitigation and operational `ρ`, `τ`, `γ` measurement
+    in the pilot design (Reviewers 1, 2).
 
+### Code changes
 
----
+- `code/cm/constitutive.py`: `r_eff()` sign flip; γ docstring updated to
+  `∈ [0, 1]` (correlated-detection convention).
+- `code/tests/test_constitutive.py`: hardcoded expected value at
+  `β=10, ρ=τ=0.5, γ=1` updated from 3.125 to 1.875; corner-case docstrings
+  reflect the new sign. All 14 tests pass; full `cm/` test pass.
+- `code/figures/fig02_phase_transition.py`: docstring sign updated; rendered
+  figure regenerated under the new convention.
+- `code/figures/fig05_sensitivity_analysis.py` and rendered figure: `τ*`
+  values recomputed under the new sign — bilinear 0.860 → 0.694, additive
+  0.882 → 0.570, quadratic 0.829 → 0.766. Sensitivity-analysis prose in the
+  paper now honestly reports the wider spread.
 
+### Paper / repository structure
 
----
+- `paper/civilizational-metamaterials-agi26-r3.tex` and `references-r3.bib`
+  moved to `drafts/r3/` to preserve the historical revision alongside r1, r2.
+- `paper/` now holds the r4 sources: `.tex`, `references-r4.bib`,
+  `.bbl`, compiled `.pdf`.
+- `paper/Makefile` and `paper/build.sh`: `TEX` variable updated to
+  `civilizational-metamaterials-agi26-r4`.
+- `paper/preprint/`: r3 PDF removed; `civilizational-metamaterials-agi26.pdf`
+  (generic name, r4 content) and `civilizational-metamaterials-preprint.pdf`
+  (r4 content) in place.
+- `docs/civilizational-metamaterials-agi26-r3.pdf` renamed to
+  `civilizational-metamaterials-agi26.pdf` (r4 content); `preprint.pdf` and
+  `paper.pdf` overwritten with r4 content.
+- `docs/index.html`: cover-image link and visible filename text updated to
+  the generic `civilizational-metamaterials-agi26.pdf`.
+- `paper/arxiv/`: unchanged in this commit. arXiv submission was updated
+  in-place via the arXiv web UI (submission `submit/7513752` still on hold
+  as of this commit; replaced with r4 source bundle on 2026-05-29).
 
+### Bibliography
 
----
+- 8 entries added: W3C Verifiable Credentials, Hussey & Hughes 2007
+  (stepped-wedge design effect), Dafoe 2018, Critch & Krueger 2020 (ARCHES),
+  Carlsmith 2022, Drexler 2019 (CAIS), Orban 2025 (Jolting Technologies,
+  arXiv:2507.06398), Orban 2025 (AI Paradox Report).
+- 1 entry removed: Rao 2010 (Ribbonfarm blog) — Reviewer 1 flagged as
+  non-peer-reviewed; replaced with primary citation Scott 1998 which was
+  already in the bibliography.
+- DOIs / URLs added to every previously bare arXiv preprint and to every
+  journal article with a known DOI. 30 of 36 entries in r4's bibliography
+  now carry a clickable link in the rendered PDF (the remaining 6 are books
+  and IETF Internet-Drafts identified by their canonical non-DOI
+  identifiers).
+- Dafoe and Drexler entries cite via Internet Archive snapshots because the
+  original `fhi.ox.ac.uk` host is defunct after FHI's 2024 closure.
+
+### Typesetting
+
+- All overfull `hbox` warnings cleared. The 41.8pt overrun in the Nash
+  formalization paragraph on page 2 was eliminated by pulling the payoffs
+  into an `align*` block and dropping the unbreakable `$a_i \in \{...\}$`
+  math group. Smaller overfulls cleared by adding `\setlength{\emergencystretch}{2em}`
+  and `\usepackage[protrusion=true,expansion=false]{microtype}` to the
+  preamble.
+- Page count: r3 was 17 pages; r4 is 19 pages (body 16.7 + references 2.3).
+  The 2-page increase reflects the Tier-2 additions.
+
+### Citation
+
+- `CITATION.cff`: `version` bumped from `0.1.0-r3` to `0.1.0-r4`;
+  `date-released` set to 2026-05-29; `status` updated to "Accepted for
+  poster presentation at AGI-26. To appear in Springer LNAI."; arXiv
+  identifier added (currently `submit/7513752`, to be updated to the
+  permanent ID on approval).
+
+### Manual steps remaining
+
+1. When arXiv approves the submission, update `CITATION.cff` `identifiers`
+   entry and `docs/index.html` `#arxiv-link` with the permanent arXiv ID.
+2. When Springer publishes the LNAI volume and assigns a DOI, uncomment the
+   `preferred-citation` block in `CITATION.cff` and fill the DOI.
+3. (Optional) Regenerate `paper/arxiv/civilizational-metamaterials-agi26-r4-arxiv.tar.gz`
+   if the Makefile `arxiv` target should be re-run for the new revision.
 
 ## Phase 6 — 2026-04-23  (v1.0.0)
 

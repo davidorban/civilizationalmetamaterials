@@ -1,6 +1,6 @@
 """Figure 2: Phase Transition Diagram.
 
-R_eff = β(1−ρ)(1−τ)(1+γρτ) with β=10, γ=1.
+R_eff = β(1−ρ)(1−τ)(1−γρτ) with β=10, γ=1.
 Reproduces figures/fig02-phase-transition.pdf from source.
 
 Usage

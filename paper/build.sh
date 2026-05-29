@@ -5,7 +5,7 @@ set -euo pipefail
 
 PAPER_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$PAPER_DIR/.." && pwd)"
-TEX="civilizational-metamaterials-agi26-r3"
+TEX="civilizational-metamaterials-agi26-r4"
 
 cd "$REPO_ROOT"
 
