@@ -19,7 +19,7 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: paper/civilizational-metamaterials-agi26-r3.tex
+          root_file: paper/civilizational-metamaterials-agi26-r4.tex
           working_directory: .
           latexmk_use_lualatex: false
           latexmk_use_xelatex: false
@@ -32,15 +32,15 @@ jobs:
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: civilizational-metamaterials-agi26-r3
-          path: paper/civilizational-metamaterials-agi26-r3.pdf
+          name: civilizational-metamaterials-agi26-r4
+          path: paper/civilizational-metamaterials-agi26-r4.pdf
           if-no-files-found: error
 
       - name: Attach PDF to release and refresh docs/paper.pdf
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          cp paper/civilizational-metamaterials-agi26-r3.pdf docs/civilizational-metamaterials-agi26-r3.pdf
-          cp paper/civilizational-metamaterials-agi26-r3.pdf docs/paper.pdf
+          cp paper/civilizational-metamaterials-agi26-r4.pdf docs/civilizational-metamaterials-agi26-r4.pdf
+          cp paper/civilizational-metamaterials-agi26-r4.pdf docs/paper.pdf
           pip install pypdf Pillow
           python code/figures/make_preprint.py
           cp paper/preprint/civilizational-metamaterials-preprint.pdf docs/civilizational-metamaterials-preprint.pdf
@@ -54,4 +54,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: paper/civilizational-metamaterials-agi26-r3.pdf
+          files: paper/civilizational-metamaterials-agi26-r4.pdf
