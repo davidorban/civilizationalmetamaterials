@@ -13,7 +13,7 @@
   <meta property="og:image"       content="https://metamaterials.davidorban.com/assets/img/cover.jpg">
   <meta name="twitter:card"       content="summary_large_image">
   <meta name="twitter:title"      content="Civilizational Metamaterials — David Orban">
-  <meta name="twitter:description" content="A constitutive law for institutional coordination: R_eff = β(1−ρ)(1−τ)(1+γρτ). Phase transition between self-healing and self-destabilizing regimes.">
+  <meta name="twitter:description" content="A constitutive law for institutional coordination: R_eff = β(1−ρ)(1−τ)(1−γρτ). Phase transition between self-healing and self-destabilizing regimes.">
   <meta name="twitter:image"      content="https://metamaterials.davidorban.com/assets/img/cover.jpg">
 
   <!-- MathJax -->
@@ -52,8 +52,8 @@
         </p>
         <div class="button-row">
           <a class="btn btn-primary" href="civilizational-metamaterials-preprint.pdf">Preprint (PDF)</a>
-          <a class="btn btn-secondary" href="https://arxiv.org" id="arxiv-link"
-             title="arXiv link — will be updated on preprint submission">arXiv (pending)</a>
+          <a class="btn btn-secondary" href="https://arxiv.org/abs/2606.00235" id="arxiv-link"
+             target="_blank" rel="noopener" title="arXiv:2606.00235 (physics.soc-ph)">arXiv:2606.00235</a>
           <button class="btn btn-secondary" onclick="copyBibtex()" id="bibtex-btn">Copy BibTeX</button>
           <a class="btn btn-secondary" href="https://github.com/davidorban/civilizationalmetamaterials"
              target="_blank" rel="noopener">GitHub</a>
@@ -96,7 +96,7 @@
     </p>
 
     <div class="formula-block">
-      \[ R_{\text{eff}} = \beta \cdot (1-\rho) \cdot (1-\tau) \cdot (1 + \gamma\rho\tau) \]
+      \[ R_{\text{eff}} = \beta \cdot (1-\rho) \cdot (1-\tau) \cdot (1 - \gamma\rho\tau) \]
     </div>
 
     <p>where:</p>
@@ -104,7 +104,7 @@
       <li><strong>β</strong> — decision branching factor (AI-driven delegation tree width)</li>
       <li><strong>ρ</strong> ∈ [0, 1] — provenance fidelity (fraction of decisions with verifiable origin)</li>
       <li><strong>τ</strong> ∈ [0, 1] — verification rate (fraction of decisions actually checked)</li>
-      <li><strong>γ</strong> ≥ 0 — provenance–verification synergy (how much they reinforce each other)</li>
+      <li><strong>γ</strong> ∈ [0, 1] — correlated-detection coefficient (provenance and verification target overlapping failure modes; γ = 0 is the independent model, γ = 1 the maximum-correlation limit)</li>
     </ul>
     <p>
       When $R_{\text{eff}} &lt; 1$, unverified decisions decay — the institution is in the
@@ -125,7 +125,7 @@
     </p>
 
     <div class="hero-fig">
-      <img src="assets/img/fig02-phase-transition.png"
+      <img src="assets/img/fig02-phase-transition.png?v=2"
            alt="Phase transition diagram: R_eff as a function of provenance fidelity ρ and verification rate τ"
            onerror="this.style.display='none'; document.getElementById('fig-fallback').style.display='block'">
       <p id="fig-fallback" style="display:none; color:var(--text-muted); font-size:0.9rem; margin-top:8px;">
@@ -156,7 +156,7 @@
       </div>
       <div class="slider-row">
         <label for="slider-gamma">γ (synergy)</label>
-        <input type="range" id="slider-gamma" min="0" max="3" step="0.05" value="1">
+        <input type="range" id="slider-gamma" min="0" max="1" step="0.05" value="1">
         <span class="val" id="val-gamma">1.00</span>
       </div>
       <div id="reff-result" class="damped">—</div>
@@ -216,15 +216,21 @@
         </tr>
         <tr>
           <td>H2</td>
-          <td>Combined ρ and τ interventions are superadditive; the joint effect exceeds the sum
-          of individual effects (synergy term γρτ &gt; 0).</td>
-          <td>Additive or sub-additive joint effect.</td>
+          <td>Coordination response is <em>anisotropic</em>: within-unit (intra) and cross-boundary
+          (cross) effective reproduction numbers differ. A system can satisfy
+          $R_{\text{eff}}^{\text{intra}} &lt; 1$ while $R_{\text{eff}}^{\text{cross}} &gt; 1$ —
+          locally healthy yet failing at interfaces.</td>
+          <td>Isotropic response; no directional difference between intra- and cross-boundary cascades.</td>
         </tr>
         <tr>
           <td>H3</td>
-          <td>Coordination improvements are directional — within-unit effects differ from
-          cross-boundary effects (anisotropic tensor).</td>
-          <td>Isotropic response; no directional difference.</td>
+          <td>Combined ρ and τ interventions <em>cross</em> the critical boundary
+          $R_{\text{eff}} = 1$ at parameter combinations where neither single intervention does. In a
+          factorial (low/high ρ) × (low/high τ) design, only the high–high condition produces
+          self-healing cascade behaviour. This is a threshold-crossing claim, not a
+          sum-of-reductions claim.</td>
+          <td>A single-intervention condition also crosses into self-healing, or the high–high
+          condition fails to.</td>
         </tr>
         <tr>
           <td>H4</td>
@@ -262,17 +268,22 @@
     <h2>Cite this work</h2>
     <button class="copy-btn" onclick="copyBibtex()">Copy</button>
     <pre id="bibtex-block">@misc{orban2026civilizationalmetamaterials,
-  author       = {David Orban},
-  title        = {Civilizational Metamaterials:
-                  Engineering Coordination Under Capability
-                  Gradients and Structural Turbulence},
-  year         = {2026},
-  howpublished = {Manuscript under review at AGI-26},
-  note         = {Revision 3},
-  doi          = {10.5281/zenodo.19710482},
-  url          = {https://doi.org/10.5281/zenodo.19710482}
+  author        = {David Orban},
+  title         = {Civilizational Metamaterials:
+                   Engineering Coordination Under Capability
+                   Gradients and Structural Turbulence},
+  year          = {2026},
+  eprint        = {2606.00235},
+  archivePrefix = {arXiv},
+  primaryClass  = {physics.soc-ph},
+  doi           = {10.5281/zenodo.19710482},
+  note          = {Accepted for presentation at AGI-26
+                   (Springer LNAI, forthcoming)},
+  url           = {https://arxiv.org/abs/2606.00235}
 }</pre>
     <p style="margin-top:12px; font-size:0.9rem; color:var(--text-muted);">
+      arXiv: <a href="https://arxiv.org/abs/2606.00235" target="_blank" rel="noopener">2606.00235</a>
+      &nbsp;·&nbsp;
       DOI: <a href="https://doi.org/10.5281/zenodo.19710482" target="_blank" rel="noopener">10.5281/zenodo.19710482</a>.
       Machine-readable citation in
       <a href="https://github.com/davidorban/civilizationalmetamaterials/blob/main/CITATION.cff"
@@ -313,13 +324,13 @@ make -C paper figures      # regenerate all 10 figures from source</pre>
         <a href="https://github.com/davidorban/civilizationalmetamaterials" target="_blank" rel="noopener">GitHub</a>
       </span>
       <span id="last-updated" style="color:var(--text-muted); font-size:0.82rem;">
-        Last updated: 2026-04-23
+        Last updated: 2026-06-02
       </span>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/reff-explorer.js"></script>
+<script src="assets/js/reff-explorer.js?v=2"></script>
 <script>
 function copyText(id) {
   var text = document.getElementById(id).textContent;
