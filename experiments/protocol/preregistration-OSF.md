@@ -14,7 +14,7 @@ No.
 Does deploying a Class A/B/C provenance scaffolding system in grant review
 panels cause those panels to cross from the turbulent regime (R_eff > 1) to
 the self-healing regime (R_eff < 1) of the constitutive law
-R_eff = β(1−ρ)(1−τ)(1+γρτ)?
+R_eff = β(1−ρ)(1−τ)(1−γρτ)?
 
 ## 3. Describe each planned hypothesis
 

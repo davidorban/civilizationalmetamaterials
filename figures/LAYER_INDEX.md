@@ -18,7 +18,7 @@
 | 07 | `07_inset.png` | Inset axes showing critical boundaries for β=5,10,50 |
 
 **Computation**:
-- R_eff = β(1−ρ)(1−τ)(1+γρτ) with β=10, γ=1
+- R_eff = β(1−ρ)(1−τ)(1−γρτ) with β=10, γ=1
 - 300×300 grid over ρ∈[0,1], τ∈[0,1]
 - Phase boundary at R_eff=1.0 (scipy.optimize.brentq)
 

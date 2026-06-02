@@ -17,7 +17,7 @@ Government Grant Review Panels
 
 The paper (§Empirical) argues that institutional review panels can be modelled as
 branching processes with effective reproduction number
-R_eff = β(1−ρ)(1−τ)(1+γρτ). When R_eff > 1, unverified decisions cascade;
+R_eff = β(1−ρ)(1−τ)(1−γρτ). When R_eff > 1, unverified decisions cascade;
 when R_eff < 1, they decay. Four hypotheses (H1–H4) predict observable
 consequences of crossing the critical threshold.
 
