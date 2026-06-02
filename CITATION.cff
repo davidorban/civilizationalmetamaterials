@@ -44,11 +44,9 @@ identifiers:
     value: "10.5281/zenodo.19710482"
     description: Zenodo archival DOI (v1.0.0)
   - type: other
-    value: "arXiv:submit/7513752"
-    description: arXiv preprint (in moderation as of 2026-05-29; permanent ID assigned on approval)
-# On arXiv approval, replace the arXiv identifier value with the permanent ID
-# (e.g., "arXiv:2506.XXXXX") and uncomment the preferred-citation block below
-# once the Springer LNAI DOI is known.
+    value: "arXiv:2606.00235"
+    description: arXiv preprint (physics.soc-ph; announced 2026-06-02)
+# Uncomment the preferred-citation block below once the Springer LNAI DOI is known.
 #
 # preferred-citation:
 #   type: conference-paper

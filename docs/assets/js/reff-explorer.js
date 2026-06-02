@@ -1,6 +1,6 @@
 /* R_eff interactive explorer
  *
- * R_eff = β · (1 − ρ) · (1 − τ) · (1 + γ ρ τ)
+ * R_eff = β · (1 − ρ) · (1 − τ) · (1 − γ ρ τ)
  *
  * Reads sliders #slider-beta, #slider-rho, #slider-tau, #slider-gamma.
  * Writes computed value and regime label to #reff-result.
@@ -9,7 +9,7 @@
   'use strict';
 
   function reff(beta, rho, tau, gamma) {
-    return beta * (1 - rho) * (1 - tau) * (1 + gamma * rho * tau);
+    return beta * (1 - rho) * (1 - tau) * (1 - gamma * rho * tau);
   }
 
   function update() {

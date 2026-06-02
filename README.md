@@ -4,7 +4,7 @@
 
 David Orban · [ORCID 0009-0004-4954-1147](https://orcid.org/0009-0004-4954-1147) · Independent Researcher
 
-Status: **Under review at AGI-26** (Springer LNCS/LNAI). Revision 3.
+Status: **Accepted at AGI-26** (Springer LNAI, forthcoming). Preprint: [arXiv:2606.00235](https://arxiv.org/abs/2606.00235).
 
 Website: <https://metamaterials.davidorban.com>
 
@@ -17,10 +17,10 @@ Governance must transition from a normative discipline to an engineering discipl
 Drawing on metamaterials, where emergent macro-properties arise from designed microstructure, the paper proposes a phenomenological constitutive law for institutional coordination:
 
 ```
-R_eff = β · (1 − ρ) · (1 − τ) · (1 + γ ρ τ)
+R_eff = β · (1 − ρ) · (1 − τ) · (1 − γ ρ τ)
 ```
 
-where β is the decision branching factor, ρ is provenance fidelity, τ is the verification rate, and γ captures provenance–verification synergy. A sharp phase transition separates **self-healing** (`R_eff < 1`) from **self-destabilizing** (`R_eff > 1`) regimes, and the sub-critical condition can be engineered by institutional design.
+where β is the decision branching factor, ρ is provenance fidelity, τ is the verification rate, and γ ∈ [0, 1] is the correlated-detection coefficient (provenance and verification target overlapping failure modes). A sharp phase transition separates **self-healing** (`R_eff < 1`) from **self-destabilizing** (`R_eff > 1`) regimes, and the sub-critical condition can be engineered by institutional design.
 
 ## Four contributions
 
@@ -34,11 +34,11 @@ where β is the decision branching factor, ρ is provenance fidelity, τ is the 
 | ID | Prediction | What would falsify it |
 |---|---|---|
 | H1 | Panels crossing `R_eff = 1` exhibit a sharp regime change | No regime change observed at threshold |
-| H2 | Combined ρ and τ interventions are superadditive | Additive or sub-additive effects only |
-| H3 | Coordination improvements are directional (anisotropic) | Isotropic response to interventions |
+| H2 | Coordination response is anisotropic (within-unit vs. cross-boundary differ) | Isotropic response; no directional difference |
+| H3 | Combined ρ and τ interventions cross `R_eff = 1` where neither single one does (threshold-crossing) | A single intervention also crosses, or high–high fails to |
 | H4 | Withdrawal of interventions is asymmetrically costly (hysteresis) | Symmetric recovery on withdrawal |
 
-Full details: [`paper/preprint/civilizational-metamaterials-agi26-r3.pdf`](paper/preprint/) · [arXiv link pending]
+Full details: [arXiv:2606.00235](https://arxiv.org/abs/2606.00235) · [`paper/civilizational-metamaterials-agi26-r4.pdf`](paper/)
 
 ## Repository map
 
@@ -64,22 +64,24 @@ Python 3.11+, a TeXLive distribution (tested with 2024), and `make` are required
 
 ## Cite this work
 
-BibTeX (under-review placeholder):
+BibTeX:
 
 ```bibtex
 @misc{orban2026civilizationalmetamaterials,
-  author       = {David Orban},
-  title        = {Civilizational Metamaterials:
-                  Engineering Coordination Under Capability Gradients and Structural Turbulence},
-  year         = {2026},
-  howpublished = {Manuscript under review at AGI-26},
-  note         = {Revision 3},
-  doi          = {10.5281/zenodo.19710482},
-  url          = {https://doi.org/10.5281/zenodo.19710482}
+  author        = {David Orban},
+  title         = {Civilizational Metamaterials:
+                   Engineering Coordination Under Capability Gradients and Structural Turbulence},
+  year          = {2026},
+  eprint        = {2606.00235},
+  archivePrefix = {arXiv},
+  primaryClass  = {physics.soc-ph},
+  doi           = {10.5281/zenodo.19710482},
+  note          = {Accepted for presentation at AGI-26 (Springer LNAI, forthcoming)},
+  url           = {https://arxiv.org/abs/2606.00235}
 }
 ```
 
-A machine-readable citation is in [`CITATION.cff`](CITATION.cff). Zenodo archival DOI: [10.5281/zenodo.19710482](https://doi.org/10.5281/zenodo.19710482). On acceptance, the `status` field flips to `Accepted, AGI-26. To appear in Springer LNCS/LNAI` and an arXiv identifier is added.
+A machine-readable citation is in [`CITATION.cff`](CITATION.cff). arXiv: [2606.00235](https://arxiv.org/abs/2606.00235). Zenodo archival DOI: [10.5281/zenodo.19710482](https://doi.org/10.5281/zenodo.19710482). Accepted for presentation at AGI-26; to appear in Springer LNAI.
 
 ## Collaboration
 
