@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="791mm" height="128mm" viewBox="0 0 791 128">
+<rect x="0.00" y="0.00" width="791.00" height="128.00" rx="6" fill="#F4F6F7" stroke="#1B4F72" stroke-width="2" opacity="1"/>
+<text x="20.00" y="20.00" font-family="'STIX Two Text','Times New Roman',Georgia,serif" font-size="8.50" fill="#D68910" font-weight="bold" font-style="normal" text-anchor="start">THE CENTRAL CLAIM</text>
+<text x="20.00" y="38.00" font-family="'STIX Two Text','Times New Roman',Georgia,serif" font-size="9.50" fill="#1A1A1A" font-weight="normal" font-style="normal" text-anchor="start">AGI raises decision velocity exponentially while human verification stays bounded. The fix is not more intelligence: it is structure. Governance must become an engineering discipline that</text>
+<text x="20.00" y="50.73" font-family="'STIX Two Text','Times New Roman',Georgia,serif" font-size="9.50" fill="#1A1A1A" font-weight="normal" font-style="normal" text-anchor="start">designs coordination microstructures to keep error propagation sub-critical:</text>
+<text x="395.50" y="86" font-family="'STIX Two Text','Times New Roman',Georgia,serif" font-size="20.5" fill="#1B4F72" font-weight="bold" text-anchor="middle">R<tspan font-size="12.7" baseline-shift="-18%">eff</tspan> = β (1−ρ)(1−τ)(1−γρτ)</text>
+<text x="395.50" y="112.00" font-family="'STIX Two Text','Times New Roman',Georgia,serif" font-size="7.60" fill="#7F8C8D" font-weight="normal" font-style="normal" text-anchor="middle">β branching factor   ·   ρ provenance fidelity   ·   τ verification rate   ·   γ correlated-detection synergy</text>
+</svg>

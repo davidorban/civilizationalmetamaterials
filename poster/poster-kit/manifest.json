@@ -1,0 +1,118 @@
+{
+  "canvas": {
+    "format": "A0 portrait",
+    "width_mm": 841,
+    "height_mm": 1189,
+    "units": "mm",
+    "origin": "top-left",
+    "bleed_mm": 3,
+    "safe_margin_mm": 20,
+    "color_space": "sRGB authoring; convert to CMYK at print (FOGRA39/GRACoL)"
+  },
+  "fonts": {
+    "family": "STIX Two Text (serif); fallback Times/Georgia",
+    "note": "All text is live <text>; body copy auto-wrapped to width; numerals forced to lining figures; embed/outline fonts before final print."
+  },
+  "palette": {
+    "dark_blue": "#1B4F72",
+    "amber": "#D68910",
+    "red": "#C0392B",
+    "green": "#1E8449",
+    "blue2": "#2E86C1",
+    "gray": "#7F8C8D",
+    "light": "#F4F6F7",
+    "ink": "#1A1A1A"
+  },
+  "type_scale_pt": {
+    "title": 99,
+    "subtitle": 33,
+    "agi_lockup": 42,
+    "central_body": 27,
+    "equation": 58,
+    "column_header": 24,
+    "subhead": 23,
+    "body": 20,
+    "hyp_tag": 26,
+    "hyp_name": 22,
+    "caption": 16,
+    "footer_body": 27,
+    "url": 26
+  },
+  "grid": {
+    "body_margin_mm": 25,
+    "columns": 3,
+    "column_width_mm": 247,
+    "gutter_mm": 25
+  },
+  "modules": [
+    {
+      "file": "modules/00-header.svg",
+      "w_mm": 841,
+      "h_mm": 120,
+      "x_mm": 0,
+      "y_mm": 0,
+      "bleeds": true,
+      "role": "Title, author, conference lockup"
+    },
+    {
+      "file": "modules/01-central-claim.svg",
+      "w_mm": 791,
+      "h_mm": 128,
+      "x_mm": 25,
+      "y_mm": 132,
+      "role": "Thesis + dominant equation + parameter legend"
+    },
+    {
+      "file": "modules/02-column-problem.svg",
+      "w_mm": 247,
+      "h_mm": 318,
+      "x_mm": 25,
+      "y_mm": 270,
+      "figure": "fig1.png",
+      "role": "Problem: decoupling, Fig 1, Freezing Equilibrium"
+    },
+    {
+      "file": "modules/03-column-phase.svg",
+      "w_mm": 247,
+      "h_mm": 360,
+      "x_mm": 297,
+      "y_mm": 270,
+      "figure": "fig2.png",
+      "role": "Phase transition: Fig 2 (dominant graphic), two regimes"
+    },
+    {
+      "file": "modules/04-column-framework.svg",
+      "w_mm": 247,
+      "h_mm": 318,
+      "x_mm": 569,
+      "y_mm": 270,
+      "role": "Framework: provenance taxonomy, synthetic principals, trust anchors"
+    },
+    {
+      "file": "modules/05-testing-band.svg",
+      "w_mm": 791,
+      "h_mm": 304,
+      "x_mm": 25,
+      "y_mm": 640,
+      "figure": "fig7.png",
+      "role": "Fig 7 (enlarged) + four hypothesis cards H1–H4"
+    },
+    {
+      "file": "modules/06-footer.svg",
+      "w_mm": 841,
+      "h_mm": 237,
+      "x_mm": 0,
+      "y_mm": 952,
+      "bleeds": true,
+      "figure": "qr.svg (vector)",
+      "role": "Takeaway, links, QR"
+    }
+  ],
+  "figures": {
+    "fig1.png": "raster 1950×1200 (V_d-fix composite) — swap for vector if regenerated",
+    "fig2.svg": "HYBRID VECTOR: vector axes/labels/boundary/markers/colorbar/inset over a high-DPI rasterized heatmap gradient (viewBox 468×396 pt)",
+    "fig7.svg": "TRUE VECTOR: stepped-wedge trial design, fully vector (viewBox 576×396 pt)",
+    "qr.svg": "TRUE VECTOR path → https://metamaterials.davidorban.com"
+  },
+  "reading_path": "title → central claim → col1 → col2 → col3 → testing band → footer"
+}
