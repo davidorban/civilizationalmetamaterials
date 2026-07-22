@@ -36,29 +36,35 @@ license: MIT
 license-url: "https://github.com/davidorban/civilizationalmetamaterials/blob/main/LICENSE-CODE"
 version: "0.1.0-r4"
 date-released: "2026-05-29"
-status: "Accepted for presentation at AGI-26. To appear in Springer LNAI."
+status: "Published in the AGI-26 proceedings (Springer LNAI, LNCS vol 16855)."
 
 doi: "10.5281/zenodo.19710482"
 identifiers:
+  - type: doi
+    value: "10.1007/978-3-032-33195-3_10"
+    description: Springer proceedings chapter DOI (AGI 2026, LNCS vol 16855, pp. 118-136)
   - type: doi
     value: "10.5281/zenodo.19710482"
     description: Zenodo archival DOI (v1.0.0)
   - type: other
     value: "arXiv:2606.00235"
     description: arXiv preprint (physics.soc-ph; announced 2026-06-02)
-# Uncomment the preferred-citation block below once the Springer LNAI DOI is known.
-#
-# preferred-citation:
-#   type: conference-paper
-#   title: "Civilizational Metamaterials: Engineering Coordination Under Capability Gradients and Structural Turbulence"
-#   authors:
-#     - family-names: Orban
-#       given-names: David
-#       orcid: "https://orcid.org/0009-0004-4954-1147"
-#   collection-title: "Artificial General Intelligence — AGI 2026"
-#   collection-type: proceedings
-#   publisher:
-#     name: Springer
-#   series: "Lecture Notes in Artificial Intelligence"
-#   year: 2026
-#   doi: "10.1007/XXX-X-XXX-XXXXX-X_XX"
+
+preferred-citation:
+  type: conference-paper
+  title: "Civilizational Metamaterials: Engineering Coordination Under Capability Gradients and Structural Turbulence"
+  authors:
+    - family-names: Orban
+      given-names: David
+      orcid: "https://orcid.org/0009-0004-4954-1147"
+  collection-title: "Artificial General Intelligence. AGI 2026"
+  collection-type: proceedings
+  publisher:
+    name: "Springer, Cham"
+  series: "Lecture Notes in Computer Science (LNAI)"
+  volume: 16855
+  isbn: "978-3-032-33195-3"
+  start: 118
+  end: 136
+  year: 2026
+  doi: "10.1007/978-3-032-33195-3_10"

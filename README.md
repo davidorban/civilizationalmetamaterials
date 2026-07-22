@@ -4,7 +4,7 @@
 
 David Orban · [ORCID 0009-0004-4954-1147](https://orcid.org/0009-0004-4954-1147) · Independent Researcher
 
-Status: **Accepted at AGI-26** (Springer LNAI, forthcoming). Preprint: [arXiv:2606.00235](https://arxiv.org/abs/2606.00235).
+Status: **Published in the AGI-26 proceedings** ([Springer, LNCS vol 16855, pp. 118–136](https://doi.org/10.1007/978-3-032-33195-3_10)). Preprint: [arXiv:2606.00235](https://arxiv.org/abs/2606.00235).
 
 Website: <https://metamaterials.davidorban.com>
 
@@ -67,21 +67,26 @@ Python 3.11+, a TeXLive distribution (tested with 2024), and `make` are required
 BibTeX:
 
 ```bibtex
-@misc{orban2026civilizationalmetamaterials,
+@inproceedings{orban2026civilizationalmetamaterials,
   author        = {David Orban},
   title         = {Civilizational Metamaterials:
                    Engineering Coordination Under Capability Gradients and Structural Turbulence},
+  booktitle     = {Artificial General Intelligence. AGI 2026},
+  series        = {Lecture Notes in Computer Science},
+  volume        = {16855},
+  pages         = {118--136},
+  publisher     = {Springer, Cham},
   year          = {2026},
+  doi           = {10.1007/978-3-032-33195-3_10},
+  isbn          = {978-3-032-33195-3},
   eprint        = {2606.00235},
   archivePrefix = {arXiv},
   primaryClass  = {physics.soc-ph},
-  doi           = {10.5281/zenodo.19710482},
-  note          = {Accepted for presentation at AGI-26 (Springer LNAI, forthcoming)},
-  url           = {https://arxiv.org/abs/2606.00235}
+  url           = {https://doi.org/10.1007/978-3-032-33195-3_10}
 }
 ```
 
-A machine-readable citation is in [`CITATION.cff`](CITATION.cff). arXiv: [2606.00235](https://arxiv.org/abs/2606.00235). Zenodo archival DOI: [10.5281/zenodo.19710482](https://doi.org/10.5281/zenodo.19710482). Accepted for presentation at AGI-26; to appear in Springer LNAI.
+A machine-readable citation is in [`CITATION.cff`](CITATION.cff). Springer DOI: [10.1007/978-3-032-33195-3_10](https://doi.org/10.1007/978-3-032-33195-3_10). arXiv: [2606.00235](https://arxiv.org/abs/2606.00235). Zenodo archival DOI: [10.5281/zenodo.19710482](https://doi.org/10.5281/zenodo.19710482).
 
 ## Collaboration
 
