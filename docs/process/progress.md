@@ -34,7 +34,7 @@
 |---|---|---|
 | GitHub repo | ✅ Live | https://github.com/davidorban/civilizationalmetamaterials |
 | GitHub Release | ✅ Live | v1.0.0 |
-| Zenodo DOI | ✅ Minted | 10.5281/zenodo.19710482 |
+| Zenodo DOI | ✅ Minted | concept 10.5281/zenodo.19710481 → latest v1.1.0 10.5281/zenodo.21763809 |
 | Website | ✅ Live | https://metamaterials.davidorban.com |
 | Preprint PDF (with cover) | ✅ Live | /civilizational-metamaterials-preprint.pdf |
 | Submission PDF (no cover) | ✅ Live | /civilizational-metamaterials-agi26-r3.pdf |
@@ -72,8 +72,8 @@
 ```
 GitHub:  https://github.com/davidorban/civilizationalmetamaterials
 Website: https://metamaterials.davidorban.com
-DOI:     10.5281/zenodo.19710482
-Zenodo:  https://zenodo.org/records/19710482
+DOI:     10.5281/zenodo.19710481 (concept)
+Zenodo:  https://zenodo.org/records/21763809 (v1.1.0)
 arXiv:   submit/7513752 (permanent ID pending)
 ORCID:   0009-0004-4954-1147
 ```

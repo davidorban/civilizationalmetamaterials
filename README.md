@@ -86,7 +86,7 @@ BibTeX:
 }
 ```
 
-A machine-readable citation is in [`CITATION.cff`](CITATION.cff). Springer DOI: [10.1007/978-3-032-33195-3_10](https://doi.org/10.1007/978-3-032-33195-3_10). arXiv: [2606.00235](https://arxiv.org/abs/2606.00235). Zenodo archival DOI: [10.5281/zenodo.19710482](https://doi.org/10.5281/zenodo.19710482).
+A machine-readable citation is in [`CITATION.cff`](CITATION.cff). Springer DOI: [10.1007/978-3-032-33195-3_10](https://doi.org/10.1007/978-3-032-33195-3_10). arXiv: [2606.00235](https://arxiv.org/abs/2606.00235). Zenodo concept DOI (latest version): [10.5281/zenodo.19710481](https://doi.org/10.5281/zenodo.19710481).
 
 ## Collaboration
 
