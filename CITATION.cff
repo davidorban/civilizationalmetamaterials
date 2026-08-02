@@ -34,8 +34,8 @@ keywords:
   - multi-agent systems
 license: MIT
 license-url: "https://github.com/davidorban/civilizationalmetamaterials/blob/main/LICENSE-CODE"
-version: "0.1.0-r4"
-date-released: "2026-05-29"
+version: "1.1.0"
+date-released: "2026-08-02"
 status: "Published in the AGI-26 proceedings (Springer LNAI, LNCS vol 16855)."
 
 doi: "10.5281/zenodo.19710482"
