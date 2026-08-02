@@ -12,6 +12,36 @@ adapted for an academic repository.
 
 ---
 
+## Phase 8 — 2026-08-02  (v1.1.0, published record)
+
+The publication phase. No changes to the paper's content: this release marks
+the transition from accepted preprint to formally published chapter, and
+records the artifacts produced around the AGI-26 presentation.
+
+### Publication
+
+- **Springer proceedings chapter published** 2026-07-22:
+  [10.1007/978-3-032-33195-3_10](https://doi.org/10.1007/978-3-032-33195-3_10)
+  (*Artificial General Intelligence. AGI 2026*, LNCS vol 16855, pp. 118–136,
+  Springer Cham, ISBN 978-3-032-33195-3). This is now the preferred citation.
+- `CITATION.cff` `preferred-citation` activated as a `conference-paper` entry;
+  `version` reconciled from the pre-release `0.1.0-r4` to `1.1.0`.
+- README and minisite BibTeX upgraded from `@misc` to `@inproceedings`.
+
+### Minisite
+
+- Added the recorded AGI-26 talk (15 minutes,
+  [youtu.be/nPN5nLvphx4](https://youtu.be/nPN5nLvphx4)) as an embedded section,
+  with a "Watch the talk" link in the masthead.
+- Springer chapter button added to the masthead.
+
+### Presentation
+
+- The paper was presented at AGI-26, San Francisco, 27–30 July 2026 (poster,
+  with an A0 poster kit and A4 handout in `poster/`).
+
+---
+
 ## Phase 7 — 2026-05-29  (v1.0.1, r4 / AGI-26 camera-ready)
 
 The paper was accepted at AGI-26 for poster presentation. This phase
